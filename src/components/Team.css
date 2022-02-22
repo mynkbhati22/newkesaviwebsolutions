@@ -1,17 +1,54 @@
 .card {
   border: none !important;
   width: 20% !important;
+  background: transparent !important;
 }
 h5.card-title {
   font-weight: 600;
   font-family: "Poppins", sans-serif;
-  margin-top: -9px !important;
-  margin-left: -14px !important;
-  font-size: 20px !important;
+  margin-top: -20px;
+  margin-left: -17px !important;
+  font-size: 17px;
+  color: white;
 }
 p.card-text {
-  color: #9b9b97;
   font-family: "Poppins", sans-serif;
   font-size: 12px;
   margin-left: -14px !important;
+  color: white !important; 
+}
+.ot {
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 35px;
+}
+.ot-1 {
+  letter-spacing: 2px;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  color: #ffffff;
+}
+p.ot-para {
+  line-height: 30px;
+  font-size: 28px;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  color: #ffffff;
+  padding-top: 10px;
+}
+img.images {
+  border-radius: 14px;
+  box-shadow: 0px 0px 7px 0px #737070;
+}
+.card-body {
+  text-align: center;
+  padding: 2rem 1rem !important;
+}
+
+.our-team {
+  background: #22a8e0;
+  height: 36rem;
+}
+.cards.d-flex.align-items-center.justify-content-around {
+  padding: 30px 50px !important;
 }
