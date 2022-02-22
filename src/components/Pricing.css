@@ -1,0 +1,40 @@
+/*   font-family: "Poppins", sans-serif;#22ABE3;-blue*/
+/* #212529-black, #7F777D-grey, #606469-black2, #717585-grey2 */
+
+.pricing-container {
+  text-align: center;
+  padding-top: 200px;
+  padding-bottom: 70px;
+}
+.price-heading {
+  color: #62caf2;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+p.nhc {
+  color: #212529;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 32px;
+}
+p.nhc-1 {
+  color: #7f777d;
+  font-size: 16px;
+}
+button.gaq-2 {
+  height: 49px;
+  width: 150px;
+  background: #22abe3;
+  box-shadow: 0px 2px #88b9fa;
+  color: white;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  transition: 0.5s;
+  font-weight: 700;
+}
+button.gaq-2:hover {
+  color: white;
+  background: #257AB8;
+  box-shadow: none;
+}

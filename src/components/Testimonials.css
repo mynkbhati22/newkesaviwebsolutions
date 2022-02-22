@@ -1,0 +1,53 @@
+.row {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(-1 * var(--bs-gutter-y));
+  margin-right: calc(-0.5 * var(--bs-gutter-x));
+  margin-left: calc(-0.5 * var(--bs-gutter-x));
+}
+.swiper {
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  overflow: hidden;
+  list-style: none;
+  padding: 0;
+  z-index: 1;
+}
+.testimonials-container {
+  text-align: center;
+  padding-top: 200px;
+  padding-bottom: 70px;
+}
+.testimonials {
+  letter-spacing: 2px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #309cb2;
+}
+p.testi-1 {
+  font-family: "Poppins", sans-serif;
+}
+p.testi-2 {
+  font-family: "Poppins", sans-serif;
+  color: #686860;
+  font-size: 16px;
+  padding-bottom: 20px;
+  margin-top: -5px;
+}
+button.review {
+  height: 50px;
+  font-size: 12px;
+  font-family: "Poppins", sans-serif;
+  width: 200px;
+  border: 1px solid #198754;
+  background: white;
+  font-weight: 700;
+  padding: 0px 19px;
+}
+svg.star {
+  margin-top: -8px;
+}

@@ -1,0 +1,114 @@
+img.logo-2 {
+  max-height: 50px;
+  margin-top: 90px;
+  padding-left: 5rem;
+}
+a {
+  text-decoration: none;
+  color: #9a9a88;
+  left: 10%;
+  position: relative;
+}
+.info-mail {
+  padding-top: 15px;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+}
+a.mail\.link {
+  color: #a3a3a3;
+  padding-left: 76px !important;
+  text-decoration: none;
+}
+a.contact\.link {
+  color: #a3a3a3;
+  text-decoration: none;
+  padding-left: 72px !important;
+  font-size: 14px;
+}
+.social-icons {
+  padding-top: 4px;
+  padding-left: 71px !important;
+}
+.coinpayments-container {
+  padding-top: 50px;
+  padding-left: 50px;
+}
+.copy-right-container {
+  padding-top: 150px;
+}
+p.copy-right {
+  padding-top: 20px;
+  padding-left: 64px;
+  font-size: 14px;
+  color: #707069;
+  font-family: "Poppins", sans-serif;
+}
+hr.hr {
+  margin: 0rem 0;
+  color: inherit;
+  background-color: currentColor;
+  opacity: 0.15;
+}
+/* p.kws {
+  text-align: end;
+  padding-right: 30px;
+  font-size: 15px;
+} */
+/* .copy-rigt-content {
+  display: flex;
+  align-items: end;
+  justify-content: flex-start;
+} */
+a.icon\.icon {
+  color: #a3a3a3;
+  font-size: 12px;
+}
+a.icon\.icon-2 {
+  margin-left: 0.6em;
+  margin-right: 0.6em;
+  color: #a3a3a3;
+}
+a.icon\.icon-3 {
+  color: #a3a3a3;
+  margin-right: 0.9em;
+}
+a.icon\.icon-4 {
+  color: #a3a3a3;
+}
+.carousel-indicators {
+  background: black;
+  /* width: 70px; */
+}
+@media screen and (max-width: 540px) {
+  p.copy-right {
+    padding-top: 35px;
+    padding-left: 19px;
+    font-size: 18px;
+    color: #707069;
+    font-family: "Poppins", sans-serif;
+  }
+  p.kws {
+    color: #a7a79a;
+    font-size: 20px;
+    font-family: "Poppins", sans-serif;
+    position: absolute;
+    left: 90%;
+    top: 54%;
+    display: none;
+  }
+  a.mail\.link {
+    color: #a3a3a3;
+    text-decoration: none;
+    padding-left: 20px;
+  }
+  a.contact\.link {
+    color: #a3a3a3;
+    text-decoration: none;
+    padding-left: 19px;
+    font-size: 15px;
+  }
+  .social-icons {
+    padding-top: 5px;
+    padding-left: 24px;
+  }
+}
