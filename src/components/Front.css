@@ -159,7 +159,7 @@ img.computer-3 {
     color: #7b7b6b;
     font-family: sans-serif;
     position: absolute;
-    top: 22%;
+    top: 25%;
     font-size: 14px;
   }
   .line-1 {
@@ -170,6 +170,12 @@ img.computer-3 {
     position: absolute;
     top: 22% !important;
     z-index: 0;
+  }
+  p.lin {
+    font-weight: 400;
+    font-size: 14px;
+    color: #676763;
+    padding-bottom: 10px;
   }
   .fc-heading-1 {
     letter-spacing: 1px;
@@ -214,12 +220,11 @@ img.computer-3 {
   .fc-heading-1 {
     letter-spacing: 1px;
     position: absolute;
-    top: 56% !important;
-    font-size: 18px;
+    top: 61% !important;
+    font-size: 24px;
   }
   .line-1 {
     font-weight: 700;
-
     font-size: 17px;
     line-height: 20px;
     position: absolute;
@@ -260,13 +265,117 @@ img.computer-3 {
 
 @media screen and (max-width: 912px) {
   img.computer {
-    max-height: 280px;
+    max-height: 500px;
     margin: 50px 50px 50px;
     border: 2px solid white;
     box-shadow: 2px 2px 6px 4px #e0dcdc;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
   }
+  img.computer-3 {
+    max-height: 571px;
+    box-shadow: 2px 2px 6px 4px #e0dcdc;
+    margin-bottom: 20px;
+    width: 670px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .content-3 {
     padding-left: 70px;
+  }
+  .front-container {
+    display: grid;
+    padding: 20px 30px 10px;
+    position: relative;
+  }
+  .front-container-3 {
+    position: relative;
+    display: grid;
+  }
+  p.lin {
+    font-weight: 400;
+    font-size: 24px;
+    color: #676763;
+    padding-bottom: 10px;
+  }
+  button.gaq-2 {
+    height: 71px;
+    width: 207px;
+    background: #22abe3;
+    box-shadow: 0px 2px #88b9fa;
+    color: white;
+    font-size: 19px;
+    border: none;
+    border-radius: 4px;
+    transition: 0.5s;
+    font-weight: 700;
+  }
+  button.bp {
+    height: 55px !important;
+    width: 190px !important;
+    background: #22abe3;
+    box-shadow: 0px 2px #88b9fa;
+    color: white;
+    font-size: 19px !important;
+    border: none;
+    border-radius: 4px;
+    transition: 0.5s;
+    font-weight: 700;
+  }
+  .fc-heading {
+    letter-spacing: 3px;
+    color: #7b7b7b;
+    font-family: sans-serif;
+    position: absolute;
+    top: 11%;
+    font-size: 18px;
+  }
+  .line {
+    letter-spacing: 3px;
+    color: #212529;
+    font-family: sans-serif;
+    position: absolute;
+    top: 16%;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 30px;
+  }
+  .line-1 {
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 31px;
+    position: absolute;
+    top: 70% !important;
+    z-index: 0;
+  }
+  .fc-heading-1 {
+    letter-spacing: 1px;
+    position: absolute;
+    top: 65% !important;
+    font-size: 24px;
+  }
+  h1.mb-3 {
+    color: #212529;
+    font-weight: 800;
+    font-size: 29px;
+  }
+  .dynamic-heading {
+    padding: 32px 17px px;
+  }
+  b.heading {
+    font-size: 44px !important;
+    font-weight: 700 !important;
+    line-height: 43px !important;
+  }
+  p.dynamic-para {
+    color: #887589;
+    font-size: 25px;
+    padding: 30px 1px;
+    font-family: "Poppins", sans-serif;
   }
 }
 
@@ -327,7 +436,7 @@ img.computer-3 {
   .fc-heading-1 {
     letter-spacing: 1px;
     position: absolute;
-    top: 54% !important;
+    top: 50% !important;
     font-size: 18px !important;
   }
 
@@ -336,12 +445,12 @@ img.computer-3 {
     font-size: 20px;
     line-height: 24px;
     position: absolute;
-    top: 62% !important;
+    top: 58% !important;
     z-index: 0;
   }
   p.lin {
     font-weight: 300;
-    font-size: 13.8px !important;
+    font-size: 19px !important;
     color: #676763;
     padding: 0px 5px 10px;
   }
@@ -360,6 +469,10 @@ img.computer-3 {
     left: 86%;
     top: 69%;
   }
+  .team-container {
+    background: #22a8e0;
+    height: 44rem !important;
+  }
 }
 
 @media screen and (max-width: 412px) {
@@ -372,10 +485,10 @@ img.computer-3 {
   }
   p.lin {
     font-weight: 400;
-    font-size: 13px !important;
-
+    font-size: 16px !important;
     color: #676763;
     padding-bottom: 10px;
+    margin-top: -30px !important;
   }
   button.gaq-2 {
     height: 49px;
@@ -390,11 +503,10 @@ img.computer-3 {
     font-family: "Poppins";
   }
   img.computer-3 {
-    max-height: 290px;
     box-shadow: 2px 2px 6px 4px #e0dcdc;
     margin-left: 34px;
     margin-bottom: 15px;
-    width: 190px !important;
+    max-width: 300px !important;
   }
   h2.cds-heading {
     text-align: center;
@@ -405,75 +517,76 @@ img.computer-3 {
     font-size: 16px;
   }
   img.computer {
-    max-height: 150px !important ;
-    margin: 10px 10px;
+    max-height: 220px !important;
+    margin: 10px 0px;
     border: 2px solid white;
     box-shadow: 2px 2px 6px 4px #e0dcdc;
+    width: 100%;
   }
   .fc-heading {
     letter-spacing: 3px;
     color: #7b7b6b;
     font-family: sans-serif;
     position: absolute;
-    top: 12% !important;
+    top: 13% !important;
     font-size: 15px;
   }
   .line {
     font-weight: 700;
-
-    font-size: 15px;
-    line-height: 19px;
-    position: absolute;
-    top: 22% !important;
-    z-index: 0;
-  }
-  .fc-heading-1 {
-    letter-spacing: 0px;
-    position: absolute;
-    top: 46% !important;
     font-size: 17px;
-  }
-  .line-1 {
-    font-weight: 700;
-
-    font-size: 15px;
-    line-height: 22px;
-    position: absolute;
-    top: 54% !important;
-    z-index: 0;
-  }
-}
-
-@media screen and (max-width: 280px) {
-  .fc-heading {
-    letter-spacing: 3px;
-    color: #7b7b6b;
-    font-family: sans-serif;
-    position: absolute;
-    top: 11% !important;
-    font-size: 14px;
-  }
-  .line {
-    font-weight: 700;
-    font-size: 11px;
     line-height: 19px;
     position: absolute;
     top: 20% !important;
     z-index: 0;
   }
-  .line-1 {
-    font-weight: 700;
-    font-size: 13px;
-    line-height: 22px;
-    position: absolute;
-    top: 52% !important;
-    z-index: 0;
-  }
   .fc-heading-1 {
     letter-spacing: 0px;
     position: absolute;
-    top: 45% !important;
+    top: 55% !important;
+    font-size: 17px;
+  }
+  .line-1 {
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 22px;
+    position: absolute;
+    top: 61% !important;
+    z-index: 0;
+  }
+  .team-container {
+    background: #22a8e0;
+    height: 34rem !important;
+  }
+}
+
+@media screen and (max-width: 280px) {
+  p.nhc-1 {
+    color: #7f777d;
+    font-size: 18px;
+    font-weight: 300;
+    padding: 0px 7px;
+  }
+  .line {
+    font-weight: 700;
     font-size: 14px;
+    line-height: 15px;
+    position: absolute;
+    top: 23% !important;
+    z-index: 0;
+  }
+  .line-1 {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 19px;
+    position: absolute;
+    top: 55% !important;
+    z-index: 0;
+  }
+  .fc-heading-1 {
+    letter-spacing: 1px;
+    position: absolute;
+    top: 45% !important;
+    font-size: 17px !important;
   }
   p.lin {
     font-weight: 400;
@@ -501,12 +614,14 @@ img.computer-3 {
     font-weight: 700;
     line-height: 27px !important;
   }
-  services-container {
+  .services-container {
     margin-left: 12px !important;
   }
   p.nhc-1 {
     color: #7f777d;
     font-size: 14px !important;
+    font-weight: 300;
+    padding: 0px 7px;
   }
   p.ccp {
     padding: 7px 1px 1px !important;
@@ -545,5 +660,34 @@ img.computer-3 {
   }
   button.navbar-toggler.navbar-toggler-end {
     margin-top: 15px !important;
+  }
+  .team-container {
+    background: #22a8e0;
+    height: 38rem !important;
+  }
+  p.name {
+    margin-bottom: -8px;
+    font-size: 20px;
+    color: #ffffff;
+    font-weight: 700;
+    font-family: "Poppins";
+  }
+  p.ot-para {
+    line-height: 21px;
+    font-size: 17px;
+    font-weight: 700;
+    font-family: "Poppins";
+    color: #ffffff;
+    padding: 5px 9px;
+  }
+  img.computer-3 {
+    max-height: 300px !important;
+    border: 2px solid white;
+    box-shadow: 2px 2px 6px 4px #e0dcdc;
+    display: block !important;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    height: 212px;
   }
 }

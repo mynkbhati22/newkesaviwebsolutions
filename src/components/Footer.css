@@ -111,4 +111,24 @@ a.icon\.icon-4 {
     padding-top: 5px;
     padding-left: 24px;
   }
+  input[type="image"] {
+    width: 60% !important;
+  }
+}
+
+@media screen and (max-width: 280px) {
+  img.logo-2 {
+    max-height: 50px;
+    margin-top: 20px;
+    padding-left: 2rem;
+  }
+  a.mail\.link {
+    padding-left: 29px !important;
+  }
+  a.contact\.link {
+    padding-left: 24px !important;
+  }
+  .social-icons {
+    padding-left: 26px !important;
+  }
 }

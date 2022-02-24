@@ -81,4 +81,48 @@ button.slick-arrow.slick-prev {
     width: 100%;
     border-radius: 0px;
   }
+  p.name {
+    margin-bottom: -8px;
+    font-size: 30px;
+    color: #ffffff;
+    font-weight: 700;
+    font-family: "Poppins";
+  }
+}
+
+@media screen and (max-width: 412px) {
+  p.ot-para {
+    line-height: 21px;
+    font-size: 24px;
+    font-weight: 700;
+    font-family: "Poppins";
+    color: #ffffff;
+    padding: 5px 9px;
+  }
+  .slider-container {
+    padding: 2rem 2rem;
+    width: 100% !important;
+  }
+  h3.ot {
+    letter-spacing: 1px;
+    font-weight: 700;
+    font-family: "Poppins";
+    color: #ffffff;
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 280px) {
+  .team-container {
+    background: #22a8e0;
+    height: 34rem !important;
+  }
+  p.ot-para {
+    line-height: 26px;
+    font-size: 24px;
+    font-weight: 700;
+    font-family: "Poppins";
+    color: #ffffff;
+    padding: 5px 9px;
+  }
 }

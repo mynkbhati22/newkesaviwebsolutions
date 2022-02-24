@@ -143,6 +143,7 @@ h4.dynamic-heading-2 {
     align-items: center;
     display: grid;
   }
+
   .dynamic-heading {
     padding: 32px 34px !important;
   }
@@ -167,6 +168,10 @@ h4.dynamic-heading-2 {
     align-items: center;
     display: grid;
   }
+  .team-container {
+      background: #22a8e0;
+      height: 36rem !important;
+  }
 }
 
 @media screen and (max-width: 540px) {
@@ -178,14 +183,14 @@ h4.dynamic-heading-2 {
     margin-left: 15px !important;
   }
   .img-gradient-right::before {
-    left: 7rem;
+    left: 8rem !important;
     right: auto;
   }
   .img-gradient::before {
     content: "";
     display: block;
     position: absolute;
-    bottom: -2rem;
+    bottom: -1rem;
     background: linear-gradient(45deg, #f68733, #a54500);
     border-radius: 0.25rem;
     z-index: -1;
@@ -210,12 +215,12 @@ h4.dynamic-heading-2 {
     display: grid;
   }
   .dynamic-heading {
-    padding: 32px 30px;
+    padding: 15px 15px !important;
   }
   p.dynamic-para {
     color: #887589;
     font-size: 15px;
-    padding: 30px 0px;
+    padding: 30px 0px !important;
     font-family: "Poppins", sans-serif;
   }
   b.heading {
@@ -380,5 +385,14 @@ h4.dynamic-heading-2 {
   }
   .dynamic-heading {
     padding: 32px 74px;
+  }
+}
+
+@media screen and (max-width: 412px) {
+  h1.mb-3 {
+    font-size: 26px !important;
+  }
+  p.text-muted {
+    font-size: 15px !important;
   }
 }
