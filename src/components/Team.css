@@ -7,29 +7,55 @@
   padding-bottom: 35px;
 }
 h3.ot {
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   font-weight: 700;
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins";
   color: #ffffff;
-  font-size: 19px;
+  font-size: 16px;
 }
 p.ot-para {
   line-height: 30px;
   font-size: 28px;
   font-weight: 700;
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins";
   color: #ffffff;
-  padding-top: 10px;
+  padding-top: 3px;
 }
 .team-container {
   background: #22a8e0;
   height: 40rem;
 }
-
-.image-container {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
+img.image {
+  border-radius: 20px;
+}
+.slider-container {
+  padding: 5rem 2rem;
+  width: 100% !important;
+}
+.slick-slide img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 65%;
+}
+p.name {
+  margin-top: 12px;
+  margin-bottom: -3px;
+}
+.details {
+  text-align: center;
+}
+p.name {
+  margin-bottom: -3px;
+  font-size: 22px;
+  color: #ffffff;
+  font-weight: 700;
+  font-family: "Poppins";
+}
+span.designation {
+  color: #ffff;
+  font-weight: 100;
+  font-size: 14px;
 }
 button.slick-arrow.slick-next {
   display: none !important;
@@ -42,8 +68,17 @@ button.slick-arrow.slick-prev {
     background: #22a8e0;
     height: 44rem !important;
   }
+  .slick-slide img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+  }
 }
 
 @media screen and (max-width: 540px) {
-  
+  img.image {
+    width: 100%;
+    border-radius: 0px;
+  }
 }

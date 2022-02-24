@@ -7,9 +7,10 @@
   padding-bottom: 70px;
 }
 .price-heading {
-  color: #62caf2;
+  color: #22abe3;
   font-weight: 700;
   letter-spacing: 2px;
+  font-family: "Poppins";
 }
 p.nhc {
   color: #212529;
@@ -35,6 +36,20 @@ button.gaq-2 {
 }
 button.gaq-2:hover {
   color: white;
-  background: #257AB8;
+  background: #257ab8;
   box-shadow: none;
+}
+
+@media screen and (max-width: 540px) {
+  p.nhc-1 {
+    color: #7f777d;
+    font-size: 18px;
+    font-weight: 300;
+    padding: 0px 66px;
+  }
+  .pricing-container {
+    text-align: center;
+    padding-top: 100px;
+    padding-bottom: 70px;
+  }
 }

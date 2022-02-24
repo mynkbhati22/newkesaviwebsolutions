@@ -1,6 +1,8 @@
 /*   font-family: "Poppins", sans-serif;#22ABE3;-blue*/
 /* #212529-black, #7F777D-grey, #606469-black2, #717585-grey2 */
 @import url("https://fonts.googleapis.com/css2?family=Aclonica&family=Poppins:wght@300&display=swap");
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
 
 header.header.fixed-top.header-animated {
   padding-bottom: 0px !important;
@@ -54,19 +56,17 @@ img.gif {
   margin-left: -8px !important;
 }
 
-img.d-block.w-100 {
-  width: 4.5% !important;
-}
-.carousel-item.active,
-.carousel-item-next,
-.carousel-item-prev {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-around !important;
-}
+/* images */
 
-div#carouselExampleControls {
-  padding: 50px 35px !important;
+.d-block {
+  display: block !important;
+  margin-left: auto;
+  margin-right: auto;
+  width: 27% !important;
+}
+.slider-container {
+  padding: 5rem 4rem;
+  width: 80% !important;
 }
 
 /* dynamic */
@@ -115,8 +115,8 @@ h4.dynamic-heading-2 {
   text-align: start;
   text-indent: 0px;
   font-size: 22px;
-  /* font-family: "Poppins", sans-serif; */
 }
+
 @media screen and (max-width: 414px) {
   .img-gradient-right::before {
     left: 7rem !important;
@@ -195,6 +195,12 @@ h4.dynamic-heading-2 {
     max-width: 88% !important;
     height: auto;
   }
+  .d-block {
+    display: block !important;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40% !important;
+  }
   .dynamic-text {
     display: grid;
   }
@@ -227,6 +233,11 @@ h4.dynamic-heading-2 {
     color: #887589;
     font-weight: 400;
     font-size: 19px;
+  }
+  h1.mb-3 {
+    color: #212529;
+    font-weight: 800;
+    font-size: 33px !important;
   }
 }
 
@@ -313,11 +324,6 @@ h4.dynamic-heading-2 {
     padding: 20px 3px;
     font-family: "Poppins", sans-serif;
   }
-  /* p.dynamic-para-2 {
-    color: #887589;
-    font-weight: 400;
-    font-size: 20px !important;
-  } */
   h1.mb-3 {
     color: #212529;
     font-weight: 800;

@@ -3,6 +3,7 @@ import { FaCheckCircle } from "react-icons/fa";
 import icon from "./image/icon-4.gif";
 
 import "./HeroSection.css";
+import PartnersSlider from "./PartnersSlider";
 
 function HeroSection() {
   return (
@@ -43,103 +44,7 @@ function HeroSection() {
           </div>
         </div>
       </section>
-
-      <div
-        id="carouselExampleControls"
-        className="carousel slide"
-        data-bs-ride="carousel"
-      >
-        <div className="carousel-inner">
-          <div className="carousel-item active">
-            <img
-              src="https://d33wubrfki0l68.cloudfront.net/1c97ccd4c03b1f8c665665a71a046b45792089cc/f68d4/img/cryptokidfinance.png"
-              className="d-block w-100"
-              alt="..."
-            />
-            <img
-              src="https://d33wubrfki0l68.cloudfront.net/33a9056290beeeeeeb636753a59f060f805a5a2b/25fb1/img/ryoshilogo.svg"
-              className="d-block w-100"
-              alt="..."
-            />
-            <img
-              src="https://d33wubrfki0l68.cloudfront.net/efbe23118b2850e7884abb27022c33a01746cae7/ef202/img/metfx.png"
-              className="d-block w-100"
-              alt="..."
-            />
-            <img
-              src="https://d33wubrfki0l68.cloudfront.net/011c16d8603e39ec3cf26326b1ac031703e89b9f/c6d8f/img/bets.png"
-              className="d-block w-100"
-              alt="..."
-            />
-            <img
-              src="https://d33wubrfki0l68.cloudfront.net/039853c5a4de31e919d1a61f902725ecde9587f6/01ab0/img/badge.png"
-              className="d-block w-100"
-              alt="..."
-            />
-            <img
-              src="https://d33wubrfki0l68.cloudfront.net/84ed87af7addbb8c69afb7f07552fbc4097253a2/c9079/img/bfyc.png"
-              className="d-block w-100"
-              alt="..."
-            />
-          </div>
-          <div className="carousel-item">
-            <img
-              src="https://d33wubrfki0l68.cloudfront.net/1c97ccd4c03b1f8c665665a71a046b45792089cc/f68d4/img/cryptokidfinance.png"
-              className="d-block w-100"
-              alt="..."
-            />
-            <img
-              src="https://d33wubrfki0l68.cloudfront.net/33a9056290beeeeeeb636753a59f060f805a5a2b/25fb1/img/ryoshilogo.svg"
-              className="d-block w-100"
-              alt="..."
-            />
-            <img
-              src="https://d33wubrfki0l68.cloudfront.net/efbe23118b2850e7884abb27022c33a01746cae7/ef202/img/metfx.png"
-              className="d-block w-100"
-              alt="..."
-            />
-            <img
-              src="https://d33wubrfki0l68.cloudfront.net/011c16d8603e39ec3cf26326b1ac031703e89b9f/c6d8f/img/bets.png"
-              className="d-block w-100"
-              alt="..."
-            />
-            <img
-              src="https://d33wubrfki0l68.cloudfront.net/039853c5a4de31e919d1a61f902725ecde9587f6/01ab0/img/badge.png"
-              className="d-block w-100"
-              alt="..."
-            />
-            <img
-              src="https://d33wubrfki0l68.cloudfront.net/84ed87af7addbb8c69afb7f07552fbc4097253a2/c9079/img/bfyc.png"
-              className="d-block w-100"
-              alt="..."
-            />
-          </div>
-        </div>
-        <button
-          className="carousel-control-prev"
-          type="button"
-          data-bs-target="#carouselExampleControls"
-          data-bs-slide="prev"
-        >
-          <span
-            className="carousel-control-prev-icon"
-            aria-hidden="true"
-          ></span>
-          <span className="visually-hidden">Previous</span>
-        </button>
-        <button
-          className="carousel-control-next"
-          type="button"
-          data-bs-target="#carouselExampleControls"
-          data-bs-slide="next"
-        >
-          <span
-            className="carousel-control-next-icon"
-            aria-hidden="true"
-          ></span>
-          <span className="visually-hidden">Next</span>
-        </button>
-      </div>
+      <PartnersSlider />
 
       <div className="dynamic-container">
         <div className="dynamic-heading">

@@ -272,14 +272,23 @@ img.computer-3 {
 
 @media screen and (max-width: 540px) {
   img.computer-3 {
-    max-height: 260px !important;
-    max-width: 270px;
-  }
-  img.computer {
-    max-height: 186px !important;
-    /* margin: 26px 26px 26px; */
+    max-height: 300px !important;
     border: 2px solid white;
     box-shadow: 2px 2px 6px 4px #e0dcdc;
+    display: block !important;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    height: 318px;
+  }
+  img.computer {
+    max-height: 300px !important;
+    border: 2px solid white;
+    box-shadow: 2px 2px 6px 4px #e0dcdc;
+    display: block !important;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
   }
   img.d-block.w-100 {
     max-width: 50px !important;
@@ -300,43 +309,41 @@ img.computer-3 {
     color: #7b7b6b;
     font-family: sans-serif;
     position: absolute;
-    top: 14% !important;
+    top: 12% !important;
     font-size: 15px;
   }
   .line {
     font-weight: 700;
-
-    font-size: 15px;
+    font-size: 20px;
     line-height: 19px;
     position: absolute;
-    top: 25% !important;
+    top: 21% !important;
     z-index: 0;
   }
   .front-container-3 {
-    /* display: flex; */
     display: grid;
     position: relative;
   }
   .fc-heading-1 {
     letter-spacing: 1px;
     position: absolute;
-    top: 52% !important;
-    font-size: 16px !important;
+    top: 54% !important;
+    font-size: 18px !important;
   }
 
   .line-1 {
     font-weight: 700;
-    font-size: 17px;
+    font-size: 20px;
     line-height: 24px;
     position: absolute;
-    top: 63% !important;
+    top: 62% !important;
     z-index: 0;
   }
   p.lin {
-    font-weight: 400;
-    font-size: 14px !important;
+    font-weight: 300;
+    font-size: 13.8px !important;
     color: #676763;
-    padding-bottom: 10px;
+    padding: 0px 5px 10px;
   }
   p.copy-right {
     padding-top: 35px;
