@@ -2,12 +2,12 @@ import React from "react";
 import Navbar from "../Navbar";
 import HeroSection from "../HeroSection";
 import Services from "../Services";
-import Front from "../Front";
+// import Front from "../Front";
 import Team from "../Team";
 import Pricing from "../Pricing";
 // import mobileOnlySlider from "../mobileOnlySlider";
-// import Testimonials from "../Testimonials";
-// import Footer from "../Footer";
+import Testimonials from "../Testimonials";
+import Footer from "../Footer";
 
 function Home() {
   return (
@@ -16,12 +16,12 @@ function Home() {
       <Navbar />
       <HeroSection />
       <Services />
-      <Front />
+      {/* <Front /> */}
       {/* <mobileOnlySlider /> */}
       <Team />
       <Pricing />
-      {/* <Testimonials />
-      <Footer /> */}
+      <Testimonials />
+      <Footer />
     </>
   );
 }

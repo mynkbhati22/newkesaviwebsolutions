@@ -51,3 +51,10 @@ button.review {
 svg.star {
   margin-top: -8px;
 }
+@media screen and (max-width: 540px) {
+  .testimonials-container {
+    text-align: center;
+    padding-top: 100px;
+    padding-bottom: 70px;
+  }
+}

@@ -43,13 +43,48 @@ button.gaq-2:hover {
 @media screen and (max-width: 540px) {
   p.nhc-1 {
     color: #7f777d;
-    font-size: 18px;
+    font-size: 13px !important;
     font-weight: 300;
-    padding: 0px 10px;
+    padding: 0px 68px;
+  }
+  p.nhc {
+    color: #212529;
+    font-size: 37px !important;
+    font-weight: 700;
+    line-height: 37px;
   }
   .pricing-container {
     text-align: center;
     padding-top: 100px;
     padding-bottom: 70px;
+  }
+}
+
+@media screen and (max-width: 412px) {
+  p.nhc-1 {
+    color: #7f777d;
+    font-size: 18px;
+    font-weight: 300;
+    padding: 0px 2px;
+  }
+}
+
+@media screen and (max-width: 912px) {
+  .pricing-container {
+    text-align: center;
+    font-size: 30px;
+    padding-top: 200px;
+    padding-bottom: 70px;
+  }
+  p.nhc {
+    color: #212529;
+    font-size: 37px;
+    font-weight: 700;
+    line-height: 34px;
+  }
+  p.nhc-1 {
+    color: #7f777d;
+    font-size: 22px;
+    padding: 2px 20px;
   }
 }

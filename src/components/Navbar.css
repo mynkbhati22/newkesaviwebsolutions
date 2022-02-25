@@ -4,6 +4,10 @@ header.header.fixed-top.header-animated {
   position: relative !important;
   padding-bottom: 90px !important;
 }
+section.hero.hero-home.with-pattern.d-flex.align-items-center.py-5 {
+  padding-top: 0rem !important;
+  padding-bottom: 2rem !important;
+}
 a.nav-link-1 {
   text-decoration: none;
   font-family: "Poppins", sans-serif;
@@ -20,7 +24,6 @@ nav.navbar.navbar-expand-lg.navbar-light.py-3 {
 li.nav-item-1 {
   padding-top: 7px;
   padding-right: 40px;
-  
 }
 .btn-primary {
   color: #fff;
