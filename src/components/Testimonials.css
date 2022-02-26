@@ -278,7 +278,7 @@ p.alvin-des {
 
 @media screen and (max-width: 280px) {
   .about-contanier {
-    padding-left: 10px;
+    padding-left: 0px;
     text-align: center;
     margin-top: 45px;
   }
@@ -287,7 +287,7 @@ p.alvin-des {
     border: 1px solid;
     font-size: 14px;
     width: 256px;
-    height: 157px;
+    height: 170px;
     padding: 30px 35px 30px;
     font-weight: 400;
     z-index: 0;
@@ -310,6 +310,10 @@ p.alvin-des {
     background: white;
     z-index: 1;
   }
+  section.pb-5 {
+    margin-right: 4px;
+    margin-left: 4px;
+  }
 }
 
 @media screen and (max-width: 912px) {
@@ -317,5 +321,23 @@ p.alvin-des {
     max-width: 560px;
     display: width;
     display: grid;
+  }
+}
+
+@media screen and (max-width: 412px) {
+  .box-2 {
+    position: relative;
+    border: 1px solid;
+    font-size: 14px;
+    width: 340px;
+    height: 130px;
+    padding: 30px 35px 30px;
+    font-weight: 400;
+    z-index: 0;
+  }
+  .about-contanier {
+    padding-left: 43px;
+    text-align: center;
+    margin-top: 45px;
   }
 }
