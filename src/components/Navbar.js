@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Navbar.css";
 
 function Navbar() {
@@ -32,9 +33,9 @@ function Navbar() {
             >
               <ul className="navbar-nav ms-auto">
                 <li className="nav-item-1">
-                  <a className="nav-link-1" href="/portfolio">
+                  <Link to="/portfolio" className="nav-link-1">
                     Portfolio
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item-2">
                   <a href="/getaquote">
