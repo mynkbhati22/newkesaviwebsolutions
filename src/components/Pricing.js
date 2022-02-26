@@ -6,7 +6,7 @@ function Pricing() {
     <>
       <div className="pricing-container">
         <div className="price-heading">PRICING</div>
-        <p className="nhc">No hidden charge, Extremely Affordable</p>
+        <h4 className="nhc">No hidden charge, Extremely Affordable</h4>
         <p className="nhc-1">
           Cost of services depend on specific solutions designed to match your
           needs, here we are <br />

@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../Navbar";
 import HeroSection from "../HeroSection";
 import Services from "../Services";
-// import Front from "../Front";
+import Front from "../Front";
 import Team from "../Team";
 import Pricing from "../Pricing";
 // import mobileOnlySlider from "../mobileOnlySlider";
@@ -16,7 +16,7 @@ function Home() {
       <Navbar />
       <HeroSection />
       <Services />
-      {/* <Front /> */}
+      <Front />
       {/* <mobileOnlySlider /> */}
       <Team />
       <Pricing />

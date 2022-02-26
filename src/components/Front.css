@@ -9,7 +9,7 @@
 img.computer {
   width: 83%;
   border: none;
-  height: 375px;
+  height: 337px;
   margin-top: 10px;
   margin-bottom: 20px;
   box-shadow: 2px 2px 6px 4px #e0dcdc;
@@ -46,7 +46,7 @@ p.fd {
 }
 h3.fl {
   font-weight: 700;
-  font-size: 24px;
+  font-size: 21px;
   line-height: 1.4rem;
 }
 button.gaq-2 {
@@ -89,57 +89,6 @@ p.lin-2 {
   color: #6c757d;
 }
 
-@media screen and (max-width: 412px) {
-  .front-row {
-    justify-content: space-around;
-    align-items: center;
-    display: grid;
-  }
-  .front-container-1 {
-    margin-left: 3rem !important;
-    padding-top: 5rem;
-  }
-  .front-container-2 {
-    margin-left: 1rem;
-  }
-  h3.fl {
-    font-weight: 700;
-    font-size: 18px !important;
-    line-height: 1.4rem;
-  }
-  p.lin {
-    font-weight: 400;
-    font-size: 16px;
-    padding: 20px 0px;
-    color: #6c757d;
-    font-family: "Poppins";
-  }
-  p.lin-2 {
-    padding: 15px 0;
-    font-size: 10px;
-    font-weight: 400;
-    font-family: "Poppins";
-    color: #6c757d;
-  }
-  img.computer {
-    width: 90%;
-    border: none;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    box-shadow: 2px 2px 6px 4px #e0dcdc;
-    margin-left: 8px !important;
-  }
-  img.computer-2 {
-    width: 82% !important;
-    border: none;
-    margin-bottom: 20px;
-    box-shadow: 2px 2px 6px 4px #e0dcdc;
-  }
-  .content-2 {
-    margin-left: 2px !important;
-  }
-}
-
 @media screen and (max-width: 540px) {
   .front-row {
     justify-content: space-around;
@@ -150,25 +99,23 @@ p.lin-2 {
     margin-left: 1rem;
     padding-top: 5rem;
   }
-  .front-container-2 {
-    margin-left: 1rem;
-  }
+
   img.computer {
-    width: 83%;
+    width: 90%;
     border: none;
-    max-height: 326px;
+    height: 350px;
     margin-top: 10px;
     margin-bottom: 20px;
     box-shadow: 2px 2px 6px 4px #e0dcdc;
-    margin-left: 28px !important;
+    margin-left: 0px !important;
   }
   img.computer-2 {
-    width: 83%;
+    width: 90%;
     border: none;
-    margin-left: 27px;
     margin-bottom: 20px;
     box-shadow: 2px 2px 6px 4px #e0dcdc;
   }
+  
   button.gaq-2 {
     height: 49px;
     width: 150px;
@@ -181,6 +128,20 @@ p.lin-2 {
     transition: 0.5s;
     font-weight: 700;
     margin-bottom: 8px;
+  }
+  p.lin {
+    font-weight: 400;
+    font-size: 12px;
+    padding: 20px 0px;
+    color: #6c757d;
+    font-family: "Poppins";
+  }
+  p.lin-2 {
+    padding: 15px 0;
+    font-size: 12px;
+    font-weight: 400;
+    font-family: "Poppins";
+    color: #6c757d;
   }
   p.nhc {
     color: #212529;
@@ -195,51 +156,17 @@ p.lin-2 {
   }
 }
 
-@media screen and (max-width: 360px) {
-  img.computer {
-    width: 85%;
-    border: none;
-    max-height: 263px;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    box-shadow: 2px 2px 6px 4px #e0dcdc;
-    margin-left: 16px !important;
-  }
-  img.computer-2 {
-    width: 87%;
-    border: none;
-    margin-left: 12px;
-    margin-bottom: 20px;
-    box-shadow: 2px 2px 6px 4px #e0dcdc;
-  }
-}
-
 @media screen and (max-width: 912px) {
   .front-row {
     display: grid;
     justify-content: space-around;
     align-items: center;
   }
-  .front-container-1 {
-    margin-left: -3rem;
-    padding-top: 5rem;
-  }
-  img.computer {
-    width: 90%;
-    border: none;
-    height: 403px;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    box-shadow: 2px 2px 6px 4px #e0dcdc;
-    margin-left: 2px !important;
-  }
+
   p.fd {
     --bs-text-opacity: 1;
     color: #6c757d !important;
     font-size: 23px;
-  }
-  .content-2 {
-    margin-left: -57px;
   }
   h3.fl {
     font-weight: 700;
@@ -259,12 +186,6 @@ p.lin-2 {
     line-height: 1;
   }
 
-  img.computer-2 {
-    width: 100%;
-    border: none;
-    margin-bottom: 20px;
-    box-shadow: 2px 2px 6px 4px #e0dcdc;
-  }
   button.gaq-2 {
     height: 49px;
     width: 150px;
@@ -277,6 +198,21 @@ p.lin-2 {
     transition: 0.5s;
     font-weight: 700;
     margin-bottom: 12px;
+  }
+  img.computer {
+    width: 86%;
+    border: none;
+    height: 345px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    box-shadow: 2px 2px 6px 4px #e0dcdc;
+  }
+  img.computer-2 {
+    width: 77%;
+    border: none;
+    margin-left: 25px;
+    margin-bottom: 20px;
+    box-shadow: 2px 2px 6px 4px #e0dcdc;
   }
 }
 
@@ -292,4 +228,5 @@ p.lin-2 {
     font-size: 19px;
     padding: 2px 20px;
   }
+
 }

@@ -12,7 +12,7 @@
   letter-spacing: 2px;
   font-family: "Poppins";
 }
-p.nhc {
+h4.nhc {
   color: #212529;
   font-size: 30px;
   font-weight: 700;
@@ -43,29 +43,49 @@ button.gaq-2:hover {
 @media screen and (max-width: 540px) {
   p.nhc-1 {
     color: #7f777d;
-    font-size: 13px !important;
-    font-weight: 300;
-    padding: 0px 68px;
+    font-size: 19px !important;
+    padding: 4px 2px;
   }
   p.nhc {
     color: #212529;
-    font-size: 37px !important;
+    font-size: 29px;
     font-weight: 700;
-    line-height: 37px;
+    line-height: 32px;
   }
   .pricing-container {
     text-align: center;
     padding-top: 100px;
     padding-bottom: 70px;
   }
+  p.testi-1 {
+    font-weight: 700;
+    font-size: 20px;
+  }
 }
 
 @media screen and (max-width: 412px) {
+  .price-heading {
+    color: #22abe3;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 18px;
+  }
   p.nhc-1 {
     color: #7f777d;
-    font-size: 18px;
+    font-size: 17px !important;
     font-weight: 300;
     padding: 0px 2px;
+  }
+  p.testi-1 {
+    font-weight: 700;
+    font-size: 24px;
+  }
+  p.testi-2 {
+    font-family: "Poppins", sans-serif;
+    color: #686860;
+    font-size: 17px;
+    margin-top: -5px;
+    padding: 0px 23px 20px;
   }
 }
 
@@ -78,13 +98,34 @@ button.gaq-2:hover {
   }
   p.nhc {
     color: #212529;
-    font-size: 37px;
+    font-size: 30px;
     font-weight: 700;
     line-height: 34px;
   }
   p.nhc-1 {
     color: #7f777d;
-    font-size: 22px;
+    font-size: 19px;
     padding: 2px 20px;
+  }
+}
+
+@media screen and (max-width: 280px) {
+  p.nhc {
+    color: #212529;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 24px;
+  }
+  p.nhc-1 {
+    color: #7f777d;
+    font-size: 14px !important; 
+    font-weight: 300;
+    padding: 2px 8px;
+  }
+  .price-heading {
+    color: #22abe3;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 20px;
   }
 }

@@ -5,7 +5,6 @@
   text-align: center;
   padding-top: 50px;
   padding-bottom: 35px;
-
 }
 h3.ot {
   letter-spacing: 1px;
@@ -101,8 +100,8 @@ button.slick-arrow.slick-prev {
 
 @media screen and (max-width: 412px) {
   h2.ot-para {
-    line-height: 21px;
-    font-size: 16px;
+    line-height: 23px;
+    font-size: 18px;
     font-weight: 700;
     font-family: "Poppins";
     color: #ffffff;
@@ -129,7 +128,7 @@ button.slick-arrow.slick-prev {
   .team-container {
     background: #22a8e0;
     height: 30rem !important;
-    width: 108%;
+    width: 100%;
   }
   h2.ot-para {
     line-height: 26px;
@@ -140,11 +139,20 @@ button.slick-arrow.slick-prev {
     padding: 5px 9px;
   }
   p.name {
-    margin-bottom: -8px;
+    margin-bottom: 0px;
     font-size: 26px;
     color: #ffffff;
     font-weight: 700;
     font-family: "Poppins";
+    line-height: 27px;
+  }
+  p.name {
+    margin-bottom: 0px;
+    font-size: 26px;
+    color: #ffffff;
+    font-weight: 700;
+    font-family: "Poppins";
+    line-height: 27px;
   }
 }
 
