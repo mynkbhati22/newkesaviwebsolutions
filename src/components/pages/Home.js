@@ -11,7 +11,7 @@ import Footer from "../Footer";
 function Home() {
   return (
     <>
-      {" "}
+      {" "}   
       <Navbar />
       <HeroSection />
       <Services />

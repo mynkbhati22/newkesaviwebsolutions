@@ -37,8 +37,13 @@ function Navbar() {
                     Portfolio
                   </Link>
                 </li>
+                <li className="nav-item-1">
+                  <Link to="/erc20" className="nav-link-1">
+                   Airdrop
+                  </Link>
+                </li>
                 <li className="nav-item-2">
-                  <a href="/getaquote">
+                  <a href="/1getaquote">
                     <button
                       className="btn btn-primary"
                       type="button"

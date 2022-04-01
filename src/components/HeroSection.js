@@ -1,7 +1,6 @@
 import React from "react";
 import { FaCheckCircle } from "react-icons/fa";
 import icon from "./image/icon-4.gif";
-
 import "./HeroSection.css";
 import PartnersSlider from "./PartnersSlider";
 

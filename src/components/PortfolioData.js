@@ -3,7 +3,7 @@ import { HiArrowNarrowRight } from "react-icons/hi";
 import Client from "../Client";
 
 export default function PortfolioData() {
-  const [portfolio, setPortfolio] = useState(null);
+  const [portfolio, setPortfolio] = useState();
 
   useEffect(() => {
     Client.fetch(
@@ -15,7 +15,7 @@ export default function PortfolioData() {
            _id,
            url
          },
-         alt,
+         alt, 
         },
        link 
     }`
@@ -23,14 +23,14 @@ export default function PortfolioData() {
       .then((data) => setPortfolio(data))
       .catch(console.error);
   }, []);
-
+  
   return (
     <>
       <div className="row gy-4 gx-5 masonry-wrapper">
         {portfolio &&
           portfolio.map((portfolio, index) => (
             <div
-              className="portfolioData col-lg-4 col-md-6 grid-item"
+              className="portfolioData col-lg-4 col-md-6 grid-items"
               key={index}
             >
               <div className="look-container">
@@ -71,7 +71,7 @@ export default function PortfolioData() {
 
 // import { HiArrowNarrowRight } from "react-icons/hi";
 
-// export default function PortfolioData() {
+// export default function PortfolioData() {  
 //   const protfolioInfo = [
 //     {
 //       image: "https://images.alphacoders.com/100/thumb-1920-1008709.jpg",
