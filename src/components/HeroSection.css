@@ -81,7 +81,6 @@ img.gif {
   display: block !important;
   margin-left: auto;
   margin-right: auto;
-  width: 27% !important;
 }
 /* dynamic */
 .dynamic-text {
@@ -485,4 +484,3 @@ h4.dynamic-heading-2 {
     font-size: 17px;
   }
 }
-

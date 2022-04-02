@@ -7,7 +7,7 @@ import PartnersSlider from "./PartnersSlider";
 function HeroSection() {
   return (
     <>
-      <section className="hero hero-home with-pattern d-flex align-items-center py-5">
+      <section className="hero hero-home with-pattern d-flex align-items-center py-5" style={{maxWidth:"1440px", margin:"auto"}}>
         <div className="container py-5 mt-5">
           <div className="row align-items-center">
             <div className="col-md-6 mb-5 mb-md-0">

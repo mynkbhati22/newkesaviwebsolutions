@@ -4,6 +4,7 @@ import navlogo from "./image/logo.png";
 import meta from "./image/meta.png";
 import connect from "./image/connect.svg";
 import { FaEthereum } from "react-icons/fa";
+import { SiBinance } from "react-icons/si";
 
 export default function Erc20Navbar() {
   return (
@@ -47,12 +48,21 @@ export default function Erc20Navbar() {
                       FAQ
                     </Link>
                   </li>
+                  <button
+                    type="button"
+                    className="btn btn-outline-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop"
+                  >
+                    <FaEthereum />
+                  </button>
 
                   <button
                     type="button"
                     className="btn btn-outline-primary"
                     data-bs-toggle="modal"
                     data-bs-target="#exampleModal"
+                    style={{ marginLeft: "10px" }}
                   >
                     connect
                   </button>
@@ -73,7 +83,10 @@ export default function Erc20Navbar() {
             <div className="modal-dialog modal-dialog-centered">
               <div className="modal-content">
                 <div className="modal-header1 ">
-                  <h5 className="modal-title m-auto" id="exampleModalLabel ">
+                  <h5
+                    className="modal-title m-auto text-black"
+                    id="exampleModalLabel "
+                  >
                     Please Select Your Web3 Wallet
                   </h5>
                   <button
@@ -134,6 +147,64 @@ export default function Erc20Navbar() {
                         WalletConnect
                       </h4>{" "}
                     </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* POPUP2 */}
+          <div
+            className="modal fade"
+            id="staticBackdrop"
+            data-bs-backdrop="static"
+            data-bs-keyboard="false"
+            tabIndex="-1"
+            aria-labelledby="staticBackdropLabel"
+            aria-hidden="true"
+          >
+            <div className="modal-dialog modal-dialog-centered">
+              <div className="modal-content text-black">
+                <div className="modal-header">
+                  <h5
+                    className="modal-title ms-auto fs-3"
+                    id="staticBackdropLabel"
+                  >
+                    Change Network
+                  </h5>
+                  <button
+                    type="button"
+                    className="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div className="modal-body">
+                  <div className="coins text-center d-flex justify-content-center">
+                    <div className="eth border border-3 p-3">
+                      <FaEthereum size={29} />
+                      <span
+                        style={{
+                          paddingRight: "40px",
+                          fontSize: "20px",
+                          marginLeft: "10px",
+                        }}
+                      >
+                        Ethereum Mainnet
+                      </span>
+                    </div>
+                    <div className="bnb border border-3 p-3" style={{marginLeft:"10px"}}>
+                      <SiBinance size={29} />
+                      <span
+                        style={{
+                          paddingRight: "40px",
+                          fontSize: "20px",
+                          marginLeft: "10px",
+                        }}
+                      >
+                        BNB Smart Chain
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>

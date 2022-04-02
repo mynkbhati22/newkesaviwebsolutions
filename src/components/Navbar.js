@@ -4,7 +4,7 @@ import "./Navbar.css";
 
 function Navbar() {
   return (
-    <>
+    <section style={{maxWidth:"1440px", margin:"auto"}}>
       <header className="header fixed-top header-animated">
         <nav className="navbar navbar-expand-lg navbar-light py-3">
           <div className="container">
@@ -39,7 +39,7 @@ function Navbar() {
                 </li>
                 <li className="nav-item-1">
                   <Link to="/erc20" className="nav-link-1">
-                   Airdrop
+                    Airdrop
                   </Link>
                 </li>
                 <li className="nav-item-2">
@@ -60,7 +60,7 @@ function Navbar() {
           </div>
         </nav>
       </header>
-    </>
+    </section>
   );
 }
 

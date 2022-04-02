@@ -6,7 +6,7 @@ export default function Tutorial() {
     <div>
     <Erc20Navbar />
       <section>
-        <div className="tutorial-conatiner d-flex flex-column   ">
+        <div className="tutorial-conatiner d-flex flex-column ">
           <div className="caption text-center" style={{ marginBottom: "50px" }}>
             <h3>How to send ERC20 Token</h3>
           </div>
