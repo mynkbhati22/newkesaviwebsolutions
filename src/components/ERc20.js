@@ -28,6 +28,13 @@ export default function ERc20() {
 
     reader.readAsText(file);
   };
+  //  RESULTS
+  const [result, setResult] = useState(false);
+  const ShowResult = () => {
+    if (!result) {
+      setResult(true);
+    }
+  };
   return (
     <div>
       <Erc20Navbar />
@@ -35,7 +42,7 @@ export default function ERc20() {
         <div className="airdrop-container">
           <div className="airdrop py-5 my-4">
             <h4 className="text-center h3 fs-2 fw-bold">
-              Welcome to KWS Airdrop
+              Welcome to <span className="kws-airdrop" style={{color:"#22ABE3"}}>KWS Airdrop</span>
             </h4>
             <p className="text-center py-4">
               A tool that allows you to batch send ERC20 tokens
@@ -78,6 +85,7 @@ export default function ERc20() {
                   type="checkbox"
                   role="switch"
                   id="flexSwitchCheckChecked"
+                  style={{border:"2px solid #22ABE3"}}
                 />
               </div>
             </div>
@@ -155,7 +163,21 @@ export default function ERc20() {
             >
               {/* <button className="btn btn-primary btn-lg fw-normal">Upload csv</button> */}
               <form action="" id="csv-form">
+                <label
+                  htmlFor="csvFile"
+                  style={{
+                    border: "1px solid #22ABE3",
+                    padding: "7px",
+                    borderRadius: "7px",
+                    background: "#22ABE3",
+                    color: "white",
+                    cursor: "pointer",
+                  }}
+                >
+                  Upload CSV
+                </label>
                 <input
+                  className="d-none"
                   type="file"
                   accept=".csv"
                   id="csvFile"
@@ -172,12 +194,42 @@ export default function ERc20() {
                     if (csvFile) upload();
                   }}
                 >
-                  Upload CSV
+                  Upload
                 </button>
               </form>
             </div>
             <div className="next-container">
-              <button className="btn btn-primary d-block m-auto">Next</button>
+              <div id="liveAlertPlaceholder"></div>
+              <button
+                type="button"
+                className="btn btn-primary d-block m-auto"
+                id="liveAlertBtn"
+                onClick={ShowResult}
+              >
+                Next
+              </button>
+
+              {result ? (
+                <div
+                  className="textarea"
+                  style={{ maxWidth: "768px", margin: "auto" }}
+                >
+                  <div className="alert alert-danger my-4" role="alert">
+                    <textarea
+                      className="form-control2 text-danger text-center border-0"
+                      id="exampleFormControlTextarea1"
+                      rows="7"
+                      value={headers}
+                    ></textarea>
+                  </div>
+                  <div className="buttons text-center">
+                    <button className="btn-primary p-2 fw-normal" style={{marginRight:"10px"}}>Merge duplicates</button>
+                    <button className="btn-primary p-2 fw-normal">Proceed without merging</button>
+                  </div>
+                </div>
+              ) : (
+                ""
+              )}
             </div>
           </div>
         </div>

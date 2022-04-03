@@ -32,10 +32,10 @@ img.image {
   padding: 5rem 2rem;
   width: 100% !important;
 }
-.slick-slide img {
+img.image1 {
+  border-radius: 20px;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
   width: 65%;
 }
 p.name {

@@ -4,10 +4,53 @@ import Erc20Navbar from "../Erc20Navbar";
 export default function Tutorial() {
   return (
     <div>
-    <Erc20Navbar />
+      <Erc20Navbar />
+
+      <section>
+        <div className="about-container">
+          <div className="heading">
+            <h3 className="text-center my-3">About us</h3>
+            <p
+              className="about-text"
+              style={{ maxWidth: "768px", margin: "auto" }}
+            >
+              This DApp allows users to send thousands of tokens to multiple
+              addresses efficiently by batching the transfers and automating the
+              process. This tool enables users to save time by automatically
+              generating transactions on MetaMask. Multisender also allows users
+              to keep their account secure by delegating the trust of their
+              private keys to a safe MetaMask wallet. This tool is in production
+              since 2018. It accounts for over 20,000 transactions on Mainnet,
+              which is equivalent to several billion dollars. You can find the
+              Multisender Smart contract along with all previous transactions on
+              Etherscan .
+            </p>
+          </div>
+
+          <div className="video-tutorial">
+            <h3 className="text-center my-5">Video Tutorial</h3>
+          </div>
+          <div className="iframe">
+            <iframe
+              style={{
+                maxWidth: "768px",
+                height: "50vh",
+                border: "10px solid #22ABE3",
+              }}
+              className="video"
+              src="https://www.youtube.com/embed/OF6GBccHCJk"
+              frameborder="0"
+              title="How to airdrop any ERC20 token"
+            ></iframe>
+          </div>
+        </div>
+      </section>
       <section>
         <div className="tutorial-conatiner d-flex flex-column ">
-          <div className="caption text-center" style={{ marginBottom: "50px" }}>
+          <div
+            className="caption text-center"
+            style={{ marginBottom: "50px", marginTop: "50px" }}
+          >
             <h3>How to send ERC20 Token</h3>
           </div>
 
@@ -15,7 +58,11 @@ export default function Tutorial() {
             <h5>Preparation</h5>
             <ol className="preparation-link">
               <li>Connect your wallet</li>
-              <li>Select the network you want</li>
+              <li>
+                Select your token and specify a list of addresses in CSV format;
+                if you don't know what CSV is, click the 'Show Sample CSV'
+                button.
+              </li>
               <li>
                 Select desired token from the list. Or insert token address (the
                 address must be an ERC721 or ERC1155 contract)

@@ -82,6 +82,9 @@ img.gif {
   margin-left: auto;
   margin-right: auto;
 }
+img.d-block {
+  width: 30%;
+}
 /* dynamic */
 .dynamic-text {
   display: flex;

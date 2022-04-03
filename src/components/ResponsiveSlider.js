@@ -33,7 +33,7 @@ export default function ResponsiveSlider() {
       <div className="image-container" key={index}>
         <div className="images">
           <div className="ic">
-            <img src={cardInfo.img} className="image" alt="imglogo" />
+            <img src={cardInfo.img} className="image1" alt="imglogo" />
           </div>
           <div className="details">
             <p className="name">{cardInfo.name}</p>

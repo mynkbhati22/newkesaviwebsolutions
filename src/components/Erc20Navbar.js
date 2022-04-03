@@ -181,7 +181,7 @@ export default function Erc20Navbar() {
                 </div>
                 <div className="modal-body">
                   <div className="coins text-center d-flex justify-content-center">
-                    <div className="eth border border-3 p-3">
+                    <button className="eth btn btn-info border border-1" style={{marginLeft:"10px",padding:"12px"}}>
                       <FaEthereum size={29} />
                       <span
                         style={{
@@ -192,8 +192,8 @@ export default function Erc20Navbar() {
                       >
                         Ethereum Mainnet
                       </span>
-                    </div>
-                    <div className="bnb border border-3 p-3" style={{marginLeft:"10px"}}>
+                    </button>
+                    <button className="bnb btn btn-info border border-1" style={{marginLeft:"10px",padding:"12px"}}>
                       <SiBinance size={29} />
                       <span
                         style={{
@@ -204,7 +204,7 @@ export default function Erc20Navbar() {
                       >
                         BNB Smart Chain
                       </span>
-                    </div>
+                    </button>
                   </div>
                 </div>
               </div>
