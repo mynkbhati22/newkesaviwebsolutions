@@ -48,11 +48,22 @@ function Navbar() {
                       Portfolio
                     </Link>
                   </li>
-                  <button className="btn-primary" onClick={() => ShowAirdrop()} style={{
-                     marginRight:"40px"
-                  }}>
-                    Airdrop
-                  </button>
+                  <Link
+                    to="/airdrop"
+                    className="text-white text-decoration-none"
+                  >
+                    <button
+                      className="btn-primary"
+                      onClick={() => ShowAirdrop()}
+                      style={{
+                        marginRight: "40px",
+                        padding:"8px",
+                        width:"100px"
+                      }}
+                    >
+                      Airdrop{" "}
+                    </button>
+                  </Link>
                   <li className="nav-item-2">
                     <a href="/1getaquote">
                       <button

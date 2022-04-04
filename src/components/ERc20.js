@@ -33,6 +33,8 @@ export default function ERc20() {
   const ShowResult = () => {
     if (!result) {
       setResult(true);
+    } else {
+      setResult(false);
     }
   };
   return (
@@ -42,7 +44,10 @@ export default function ERc20() {
         <div className="airdrop-container">
           <div className="airdrop py-5 my-4">
             <h4 className="text-center h3 fs-2 fw-bold">
-              Welcome to <span className="kws-airdrop" style={{color:"#22ABE3"}}>KWS Airdrop</span>
+              Welcome to{" "}
+              <span className="kws-airdrop" style={{ color: "#22ABE3" }}>
+                KWS Airdrop
+              </span>
             </h4>
             <p className="text-center py-4">
               A tool that allows you to batch send ERC20 tokens
@@ -85,7 +90,7 @@ export default function ERc20() {
                   type="checkbox"
                   role="switch"
                   id="flexSwitchCheckChecked"
-                  style={{border:"2px solid #22ABE3"}}
+                  style={{ border: "2px solid #22ABE3" }}
                 />
               </div>
             </div>
@@ -174,7 +179,7 @@ export default function ERc20() {
                     cursor: "pointer",
                   }}
                 >
-                  Upload CSV
+                  Choose file
                 </label>
                 <input
                   className="d-none"
@@ -214,17 +219,22 @@ export default function ERc20() {
                   className="textarea"
                   style={{ maxWidth: "768px", margin: "auto" }}
                 >
-                  <div className="alert alert-danger my-4" role="alert">
-                    <textarea
-                      className="form-control2 text-danger text-center border-0"
-                      id="exampleFormControlTextarea1"
-                      rows="7"
-                      value={headers}
-                    ></textarea>
+                  <div
+                    className="alert alert-danger my-4 text-center py-4"
+                    role="alert"
+                  >
+                    {headers}
                   </div>
                   <div className="buttons text-center">
-                    <button className="btn-primary p-2 fw-normal" style={{marginRight:"10px"}}>Merge duplicates</button>
-                    <button className="btn-primary p-2 fw-normal">Proceed without merging</button>
+                    <button
+                      className="btn-primary p-2 fw-normal"
+                      style={{ marginRight: "10px" }}
+                    >
+                      Merge duplicates
+                    </button>
+                    <button className="btn-primary p-2 fw-normal">
+                      Proceed without merging
+                    </button>
                   </div>
                 </div>
               ) : (
