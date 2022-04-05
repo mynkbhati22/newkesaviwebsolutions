@@ -1,5 +1,6 @@
 import { React, useState } from "react";
 import Erc20Navbar from "./Erc20Navbar";
+import Footer from "./Footer";
 import { FaEthereum } from "react-icons/fa";
 import { SiBinance } from "react-icons/si";
 
@@ -213,8 +214,11 @@ export default function ERc20() {
                 aria-hidden="true"
               >
                 <div className="modal-dialog">
-                  <div className="modal-content text-black">
+                  <div className="modal-content">
                     <div className="modal-header">
+                      <h5 className="modal-title" id="staticBackdropLabel">
+                        Modal title
+                      </h5>
                       <button
                         type="button"
                         className="btn-close"
@@ -222,22 +226,18 @@ export default function ERc20() {
                         aria-label="Close"
                       ></button>
                     </div>
-                    <div className="modal-body">
-                      <ol>
-                        <li className="my-2 w-25">
-                          0x6cc2D366c05b8Bb96D02734813A76afc273964D40.000056
-                        </li>
-                        <li className="my-2">romanstorm.eth12</li>
-                        <li className="my-2">
-                          0xC8c30Fa803833dD1Fd6DBCDd91Ed0b301EFf87cF13.45
-                        </li>
-                        <li className="my-2">
-                          0x7D52422D3A5fE9bC92D3aE8167097eE09F1b347d1.049
-                        </li>
-                        <li className="my-2">
-                          0x64c9525A3c3a65Ea88b06f184F074C2499578A7E1
-                        </li>
-                      </ol>
+                    <div className="modal-body">...</div>
+                    <div className="modal-footer">
+                      <button
+                        type="button"
+                        className="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                      >
+                        Close
+                      </button>
+                      <button type="button" className="btn btn-primary">
+                        Understood
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -345,6 +345,8 @@ export default function ERc20() {
           </div>
         </div>
       </section>
+      <Footer/>
     </div>
+
   );
 }

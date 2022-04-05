@@ -1,5 +1,6 @@
 import React from "react";
 import Erc20Navbar from "../Erc20Navbar";
+import Footer from "../Footer";
 
 export default function Faq() {
   return (
@@ -599,6 +600,7 @@ export default function Faq() {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 }

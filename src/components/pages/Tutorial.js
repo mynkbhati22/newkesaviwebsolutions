@@ -1,5 +1,6 @@
 import React from "react";
 import Erc20Navbar from "../Erc20Navbar";
+import Footer from "../Footer";
 
 export default function Tutorial() {
   return (
@@ -107,6 +108,7 @@ export default function Tutorial() {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 }

@@ -6,6 +6,7 @@ import Portfolio from "./components/Portfolio";
 import ERc20 from "./components/ERc20";
 import Tutorial from "./components/pages/Tutorial";
 import Faq from "./components/pages/Faq";
+// import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/tutorial" component={Tutorial}></Route>
           <Route path="/faq" component={Faq}></Route>
         </Switch>
+        {/* <ScrollToTop /> */}
       </Router>
     </div>
   );

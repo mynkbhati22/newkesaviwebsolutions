@@ -1,6 +1,10 @@
+.footer-container {
+  max-width: 1440px;
+  margin: auto;
+}
 img.logo-2 {
   max-height: 50px;
-  margin-top: 90px;
+  margin-top: 160px;
   padding-left: 5rem;
 }
 a {

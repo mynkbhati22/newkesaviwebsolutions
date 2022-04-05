@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import navlogo from "./image/logo.png";
 import meta from "./image/meta.png";
@@ -7,6 +7,16 @@ import { FaEthereum } from "react-icons/fa";
 import { SiBinance } from "react-icons/si";
 
 export default function Erc20Navbar() {
+  const [account, setAccount] = useState();
+
+  const connectMetamask = async () => {
+    if (window.ethereum) {
+      const add = await window.ethereum.enable();
+      setAccount(add[0]);
+      console.log(window.ethereum);
+    }
+  };
+
   return (
     <div>
       <section>
@@ -64,7 +74,9 @@ export default function Erc20Navbar() {
                     data-bs-target="#exampleModal"
                     style={{ marginLeft: "10px" }}
                   >
-                    connect
+                    {account
+                      ? account.slice(0, 4) + "..." + account.slice(38)
+                      : "connect"}
                   </button>
                 </ul>
               </div>
@@ -98,7 +110,10 @@ export default function Erc20Navbar() {
                 </div>
                 <div className="modal-body d-flex justify-content-evenly">
                   <div className="wallets-link">
-                    <button style={{ padding: "10px", borderRadius: "12px" }}>
+                    <button
+                      style={{ padding: "10px", borderRadius: "12px" }}
+                      onClick={connectMetamask}
+                    >
                       <img
                         src={meta}
                         alt=""
@@ -181,7 +196,10 @@ export default function Erc20Navbar() {
                 </div>
                 <div className="modal-body">
                   <div className="coins text-center d-flex justify-content-center">
-                    <button className="eth btn btn-info border border-1" style={{marginLeft:"10px",padding:"12px"}}>
+                    <button
+                      className="eth btn btn-info border border-1"
+                      style={{ marginLeft: "10px", padding: "12px" }}
+                    >
                       <FaEthereum size={29} />
                       <span
                         style={{
@@ -193,7 +211,10 @@ export default function Erc20Navbar() {
                         Ethereum Mainnet
                       </span>
                     </button>
-                    <button className="bnb btn btn-info border border-1" style={{marginLeft:"10px",padding:"12px"}}>
+                    <button
+                      className="bnb btn btn-info border border-1"
+                      style={{ marginLeft: "10px", padding: "12px" }}
+                    >
                       <SiBinance size={29} />
                       <span
                         style={{
