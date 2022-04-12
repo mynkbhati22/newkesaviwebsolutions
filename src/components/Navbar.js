@@ -4,13 +4,22 @@ import ERc20 from "./ERc20";
 import "./Navbar.css";
 
 function Navbar() {
-  const [airdrop, setAirdrop] = useState(false);
+  // const [airdrop, setAirdrop] = useState(false);
+  const [dapp, setDapp] = useState(false);
 
-  const ShowAirdrop = () => {
-    if (!airdrop) {
-      setAirdrop(true);
+  // const ShowAirdrop = () => {
+  //   if (!airdrop) {
+  //     setAirdrop(true);
+  //   } else {
+  //     setAirdrop(false);
+  //   }
+  // };
+
+  const ShowDAPP = () => {
+    if (!dapp) {
+      setDapp(true);
     } else {
-      setAirdrop(false);
+      setDapp(false);
     }
   };
   return (
@@ -52,17 +61,30 @@ function Navbar() {
                     to="/airdrop"
                     className="text-white text-decoration-none"
                   >
-                    <button
+                    {/* <button
                       className="btn-primary"
                       onClick={() => ShowAirdrop()}
                       style={{
                         marginRight: "40px",
-                        padding:"8px",
-                        width:"100px"
+                        padding: "8px",
+                        width: "100px",
                       }}
                     >
                       Airdrop{" "}
-                    </button>
+                    </button> */}
+                    <Link to="/airdrop">
+                      <button
+                        onClick={() => ShowDAPP()}
+                        className="btn-primary"
+                        style={{
+                          marginRight: "40px",
+                          padding: "8px",
+                          width: "100px",
+                        }}
+                      >
+                        DAPP
+                      </button>
+                    </Link>
                   </Link>
                   <li className="nav-item-2">
                     <a href="/1getaquote">
@@ -85,14 +107,14 @@ function Navbar() {
       </section>
 
       <section>
-        {airdrop ? (
+        {/* {airdrop ? (
           <div>
             <ERc20 />
           </div>
         ) : (
           ""
-        )}
-        ;
+        )} */}
+     
       </section>
     </div>
   );

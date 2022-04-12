@@ -1,13 +1,12 @@
 import React from "react";
-import Erc20Navbar from "../Erc20Navbar";
-import Footer from "../Footer";
+import DappNavbar from "../DappNavbar";
 
 export default function Faq() {
   return (
     <div>
-      <Erc20Navbar />
+      <DappNavbar />
       <section>
-        <div className="faq-container">
+        <div className="faq-container my-5">
           <div className="faq-heading text-center my-4">
             <h3>FAQ</h3>
           </div>
@@ -600,7 +599,6 @@ export default function Faq() {
           </div>
         </div>
       </section>
-      <Footer />
     </div>
   );
 }

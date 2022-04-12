@@ -1,14 +1,13 @@
 import React from "react";
-import Erc20Navbar from "../Erc20Navbar";
-import Footer from "../Footer";
+import DappNavbar from "../DappNavbar";
 
 export default function Tutorial() {
   return (
     <div>
-      <Erc20Navbar />
+      <DappNavbar />
 
       <section>
-        <div className="about-container">
+        <div className="about-container my-5">
           <div className="heading">
             <h3 className="text-center my-3">About us</h3>
             <p
@@ -40,7 +39,7 @@ export default function Tutorial() {
               }}
               className="video"
               src="https://www.youtube.com/embed/OF6GBccHCJk"
-              frameborder="0"
+              frameBorder="0"
               title="How to airdrop any ERC20 token"
             ></iframe>
           </div>
@@ -108,7 +107,6 @@ export default function Tutorial() {
           </div>
         </div>
       </section>
-      <Footer />
     </div>
   );
 }

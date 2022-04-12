@@ -44,7 +44,7 @@ export default function Erc20Navbar() {
                 <ul className="navbar-nav ms-auto">
                   <li className="nav-item-1">
                     <Link to="/" className="nav-link-1">
-                      Home
+                      Back to mainsite
                     </Link>
                   </li>
 

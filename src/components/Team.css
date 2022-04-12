@@ -30,7 +30,8 @@ img.image {
 }
 .slider-container {
   padding: 5rem 2rem;
-  width: 100% !important;
+  max-width: 1440px;
+  margin: auto;
 }
 img.image1 {
   border-radius: 20px;

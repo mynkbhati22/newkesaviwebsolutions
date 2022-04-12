@@ -3,8 +3,10 @@
 
 .front-row {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  max-width: 1440px;
+  margin: auto;
 }
 img.computer {
   width: 83%;
@@ -115,7 +117,7 @@ p.lin-2 {
     margin-bottom: 20px;
     box-shadow: 2px 2px 6px 4px #e0dcdc;
   }
-  
+
   button.gaq-2 {
     height: 49px;
     width: 150px;
@@ -228,5 +230,4 @@ p.lin-2 {
     font-size: 19px;
     padding: 2px 20px;
   }
-
 }

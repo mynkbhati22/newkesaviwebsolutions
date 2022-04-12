@@ -1,0 +1,273 @@
+.create-container.border.border-1.rounded-pill {
+  margin: 20px auto;
+  padding: 6px 0px;
+  text-align: center;
+  background: #22abe3;
+}
+.link-items.d-grid {
+  margin-top: 30px;
+}
+a.token-link {
+  font-size: 16px;
+  text-decoration: none;
+  color: white;
+  
+}
+
+.token-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.form-control1 {
+  display: block;
+  width: 81% !important;
+  padding: 0.4rem !important;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: white;
+  background-clip: padding-box;
+  border: 2px solid #22abe3;
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  margin-left: 6px !important;
+}
+.form-control2 {
+  display: block;
+  width: 81% !important;
+  padding: 0.4rem !important;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: white;
+  background-clip: padding-box;
+  border: 2px solid #22abe3;
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  margin-top: 15px;
+  margin-left: 30px !important;
+}
+.form-control3 {
+  display: block;
+  width: 50% !important;
+  padding: 0.4rem !important;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: white;
+  background-clip: padding-box;
+  border: 2px solid #22abe3;
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  margin-top: 15px;
+  margin-left: 30px !important;
+}
+label.col-sm-2.col-form-label {
+  padding-left: 30px;
+}
+.form-switch1 .form-check-input {
+  width: 3em !important;
+  height: 20px !important;
+  /* margin-left: -2rem; */
+  background-position: left center;
+  border-radius: 2em;
+  transition: background-position 0.15s ease-in-out;
+}
+.form-switch1 {
+  margin-left: 11rem;
+  margin-top: 1rem;
+}
+label.form-check-label {
+  margin-left: 10px;
+}
+p.decimal {
+  margin-top: 20px;
+}
+.configure {
+  width: 75%;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.row {
+  margin: auto !important;
+  max-width: 1150px !important;
+}
+.col-sm-2 {
+  flex: 0 0 auto;
+  width: 21% !important;
+}
+label.col-sm-2.col-form-label {
+  padding-left: 10px;
+}
+
+.alert.alert-warning.alert-dismissible.fade.show.bg-secondary.text-white {
+  max-width: 540px;
+  margin-left: 65px;
+  margin-top: 25px;
+  position: relative;
+  padding: 0rem 0rem !important;
+  margin-bottom: 1rem;
+  border: 0px solid red !important;
+  border-radius: 5px !important;
+}
+
+.alert.alert-warning.alert-dismissible.fade.show.bg-warning.text-white {
+  max-width: 540px;
+  margin-left: 65px;
+  margin-top: 25px;
+  position: relative;
+  padding: 0rem 0rem !important;
+  margin-bottom: 1rem;
+  border: 0px solid red !important;
+  border-radius: 5px !important;
+}
+.d-grid {
+  display: grid !important;
+  grid-gap: 50px;
+}
+
+@media screen and (max-width: 540px) {
+  .col-6 {
+    flex: 0 0 auto;
+    width: 100% !important;
+  }
+  .globalContainer {
+    margin-left: 14px;
+    margin-top: 20px;
+    margin-right: 14px;
+  }
+  .create-container.border.border-5.rounded-pill {
+    width: 100% !important;
+  }
+  a.token-link {
+    background: black;
+    color: white;
+    padding: 8px;
+    border-radius: 17px;
+    font-size: 11px;
+    text-decoration: none;
+  }
+  a.token-link2 {
+    color: black;
+    padding: 8px;
+    border-radius: 17px;
+    font-size: 12px;
+    text-decoration: none;
+    margin-left: 6px;
+  }
+  a.token-link3 {
+    color: black;
+    padding: 0px;
+    border-radius: 17px;
+    font-size: 12px;
+    text-decoration: none;
+    margin-left: 6px;
+  }
+  a.token-link4 {
+    color: black;
+    padding: 8px;
+    border-radius: 17px;
+    font-size: 15px;
+    text-decoration: none;
+    margin-left: 2px;
+  }
+  .form-control1 {
+    display: block;
+    width: 90% !important;
+    padding: 0.4rem !important;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: white;
+    background-clip: padding-box;
+    border: 2px solid #22abe3;
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    margin-left: 30px !important;
+    margin-right: 100px;
+  }
+  .form-control2 {
+    display: block;
+    width: 90% !important;
+    padding: 0.4rem !important;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: white;
+    background-clip: padding-box;
+    border: 2px solid #22abe3;
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    margin-left: 30px !important;
+    margin-right: 100px;
+  }
+  .form-control3 {
+    display: block;
+    width: 90% !important;
+    padding: 0.4rem !important;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: white;
+    background-clip: padding-box;
+    border: 2px solid #22abe3;
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    margin-left: 30px !important;
+    margin-right: 100px;
+  }
+  .configure {
+    width: 63%;
+    margin-bottom: 10px;
+    margin-top: 30px;
+  }
+  .col-sm-2 {
+    flex: 0 0 auto;
+    width: 30% !important;
+  }
+  h3.text-center {
+    margin-top: 50px !important;
+  }
+  .bottom-buttons {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .col-6.col-md-4.my-5.border.border-5 {
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+  }
+  .col-sm-6.col-md-8.border.border-5.my-5 {
+    border-top-right-radius: 0px px !important;
+    border-bottom-right-radius: 0px !important;
+  }
+  .my-5 {
+    margin-top: 0rem !important;
+    margin-bottom: 0rem !important;
+  }
+}
+
+@media screen and (max-width: 912px) {
+  .globalContainer {
+    margin-left: 15px;
+    margin-top: 20px;
+  }
+}

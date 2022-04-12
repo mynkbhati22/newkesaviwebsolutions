@@ -1,10 +1,9 @@
 import { React, useState } from "react";
-import Erc20Navbar from "./Erc20Navbar";
-import Footer from "./Footer";
 import { FaEthereum } from "react-icons/fa";
 import { SiBinance } from "react-icons/si";
+import DappNavbar from "./DappNavbar";
 
-export default function ERc20() {
+export default function Dapp() {
   const [csvFile, setCsvFille] = useState();
   // []
   const [headers, setHeaders] = useState([]);
@@ -138,10 +137,10 @@ export default function ERc20() {
   };
   return (
     <div>
-      <Erc20Navbar />
+      <DappNavbar />
       <section>
         <div className="airdrop-container">
-          <div className="airdrop py-5">
+          <div className="airdrop py-5 my-4">
             <h4 className="text-center h3 fs-2 fw-bold">
               Welcome to{" "}
               <span className="kws-airdrop" style={{ color: "#22ABE3" }}>
@@ -345,8 +344,7 @@ export default function ERc20() {
           </div>
         </div>
       </section>
-      <Footer/>
-    </div>
 
+    </div>
   );
 }
