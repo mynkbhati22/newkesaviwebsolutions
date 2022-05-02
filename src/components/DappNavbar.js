@@ -1,159 +1,151 @@
-import React from "react";
-import { AiTwotoneFire } from "react-icons/ai";
-import { SiBinance, SiEthereum } from "react-icons/si";
-import { BiInfinite } from "react-icons/bi";
+import React, { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import {
+  FaHome,
+  FaQuestionCircle,
+  FaBars,
+  FaFacebookF,
+  FaTwitter,
+  FaYoutube,
+} from "react-icons/fa";
+import { RiGuideFill } from "react-icons/ri";
+import { AiFillCopyrightCircle } from "react-icons/ai";
+import logo from "./image/logo.png";
 import "./DappNavbar.css";
+import { NavLink } from "react-router-dom";
 
 export default function DappNavbar() {
+  const sidebarInfo = [
+    {
+      path: "/",
+      name: "BACK TO HOMEPAGE",
+      icon: <FaHome />,
+    },
+    {
+      path: "/tutorial",
+      name: "TUTORIAL",
+      icon: <RiGuideFill />,
+    },
+    {
+      path: "/faq",
+      name: "FAQ",
+      icon: <FaQuestionCircle />,
+    },
+  ];
+  // state
+  const [open, setOpen] = useState(true);
+  const toggle = () => setOpen(!open);
+
+  const showAnimation = {
+    hidden: {
+      width: 0,
+      opacity: 0,
+      transition: {
+        duration: 0.5,
+      },
+    },
+
+    show: {
+      width: "auto",
+      opacity: 1,
+      transition: {
+        duration: 0.2,
+      },
+    },
+  };
   return (
     <div>
-      <section>
-        <div className="sidebar">
-          <nav aria-label="breadcrumb">
-            <ol className="breadcrumb">
-              <li className="breadcrumb-item">
-                <a href="/airdrop">Airdrop</a>
-              </li>
-              <li className="breadcrumb-item">
-                <a href="/">Create Token</a>
-              </li>
-              <li className="breadcrumb-item active" aria-current="page">
-                <a href="/createToken/ETH">ETH</a>
-              </li>
-            </ol>
-          </nav>
-          <div className="sidebar-inner d-flex flex-column">
-            <div className="px-4 py-3">
-              <a href="/">
-                <img
-                  src="https://d33wubrfki0l68.cloudfront.net/cfaf67e8d5403f3add0475ab49a825edb5c01651/2b845/img/logo.png"
-                  alt=""
-                  width="180"
-                  style={{ marginBottom: "50px" }}
-                />
-              </a>
+      <div
+        className="sidebar-container position-absolute"
+        style={{ top: "0", left: "0" }}
+      >
+        <motion.div
+          animate={{
+            width: open ? "288px" : "50px",
+            background: open ? "#ffff" : "#22ABE3",
+            transition: {
+              duration: 0.6,
+              type: "keyframes",
+            },
+          }}
+          className="sidebar"
+        >
+          <div className="sidebar-logo">
+            <div className="bars">
+              {<FaBars color="#000000" size={22} onClick={toggle} />}
             </div>
-            <div className="sidebar-menu-holder flex-grow-1">
-              <ul className="sidebar-menu list-unstyled">
-                <li className="mb-4 pb-1">
-                  <a
-                    className="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm active text-decoration-none"
-                    href="/"
-                    style={{
-                      color: "58B3EF",
-                      marginLeft: "20px",
-                    }}
-                  >
-                    Back to Homepage
-                  </a>
-                </li>
-                <li className="mb-4 pb-1">
-                  <a
-                    className="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm active text-decoration-none"
-                    href="/tutorial"
-                    style={{
-                      color: "58B3EF",
-                      marginLeft: "40px",
-                    }}
-                  >
-                    Tutorial
-                  </a>
-                </li>
-                <li className="mb-4 pb-1">
-                  <a
-                    className="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm active text-decoration-none"
-                    href="/faq"
-                    style={{
-                      color: "58B3EF",
-                      marginLeft: "50px",
-                    }}
-                  >
-                    FAq
-                  </a>
-                </li>
-                <div className="dropdown">
-                  <a
-                    className="sidebar-link h6 text-uppercase letter-spacing-2 fw-bold text-sm active text-decoration-none dropdown-toggle"
-                    href="/"
-                    role="button"
-                    id="dropdownMenuLink"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                    style={{
-                      color: "58B3EF",
-                      marginLeft: "20px",
-                    }}
-                  >
-                    Create Token <AiTwotoneFire />
-                  </a>
-
-                  <ul
-                    className="dropdown-menu"
-                    aria-labelledby="dropdownMenuLink"
-                  >
-                    <li>
-                      <a className="dropdown-item" href="/createToken/ETH">
-                        <SiEthereum /> ETH
-                      </a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item" href="/createToken/BSC">
-                        <SiBinance /> BSC
-                      </a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item" href="/createToken/Matic">
-                        <BiInfinite /> MATIC
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </ul>
-            </div>
-            <div className="px-4 py-5">
-              <ul className="list-inline list-social mb-3">
-                <li className="list-inline-item">
-                  <a
-                    className="reset-anchor"
-                    href="https://www.facebook.com/Kesaviweb/"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <i className="fab fa-facebook-f"></i>
-                  </a>
-                </li>
-                <li className="list-inline-item">
-                  <a
-                    className="reset-anchor"
-                    href="https://twitter.com/KesaviS"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <i className="fab fa-twitter"></i>
-                  </a>
-                </li>
-                <li className="list-inline-item">
-                  <a
-                    className="reset-anchor"
-                    href="https://www.youtube.com/channel/UCDRT0QQa2St9IL7OVhEs9EA"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <i className="fab fa-youtube"></i>
-                  </a>
-                </li>
-              </ul>
-              <p>&copy; 2017-22 Kesavi Web Solutions | All Rights Reserved</p>
-              <input
-                type="image"
-                src="https://www.coinpayments.net/images/pub/buynow-blue2.png"
-                alt="Buy Now with CoinPayments.net"
-                width="200px"
-              />
+            <div className="logo">
+              {open && <img src={logo} alt="" className="logo-img" />}
             </div>
           </div>
-        </div>
-      </section>
+          <div className="sidebar-content">
+            {sidebarInfo.map((content) => (
+              <NavLink
+                to={content.path}
+                key={content.name}
+                className="sidebar-link"
+              >
+                <div className="icon">{content.icon}</div>
+                <AnimatePresence>
+                  {open && (
+                    <motion.div
+                      variants={showAnimation}
+                      initial="hidden"
+                      animate="show"
+                      exit="hidden"
+                      className="content_name"
+                    >
+                      {content.name}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </NavLink>
+            ))}
+          </div>
+          <div className="sidebar-footer" style={{ marginTop: "300px" }}>
+            <div
+              className="icons"
+              style={{
+                marginBottom: "20px",
+              }}
+            >
+              <a
+                href="https://www.facebook.com/Kesaviweb"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FaFacebookF size={22} style={{ marginLeft: "10px" }} />
+              </a>
+              <a
+                href="https://twitter.com/KesaviS"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FaTwitter size={22} style={{ marginLeft: "10px" }} />
+              </a>
+              <a
+                href="https://www.youtube.com/channel/UCDRT0QQa2St9IL7OVhEs9EA"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FaYoutube size={22} style={{ marginLeft: "10px" }} />
+              </a>
+            </div>
+            <div className="copy-right">
+              <AiFillCopyrightCircle
+                color={"black"}
+                size={22}
+                style={{ marginLeft: "10px" }}
+              />
+              {open && (
+                <p style={{ color: "black", marginLeft: "10px" }}>
+                  2017-22 Kesavi Web Solutions | All Rights Reserved
+                </p>
+              )}
+            </div>
+          </div>
+        </motion.div>
+      </div>
     </div>
   );
 }

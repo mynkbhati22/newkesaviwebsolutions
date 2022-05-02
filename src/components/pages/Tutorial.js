@@ -4,7 +4,7 @@ import DappNavbar from "../DappNavbar";
 export default function Tutorial() {
   return (
     <div>
-      <DappNavbar />
+     <DappNavbar />
 
       <section>
         <div className="about-container my-5">

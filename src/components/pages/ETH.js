@@ -118,7 +118,7 @@ export default function ETH() {
                 <div className="col-sm-10">
                   <input
                     type="text"
-                    className="form-control1"
+                    className="form-control2"
                     placeholder="e.g. Good Luck Token"
                     id="tokenName"
                     required

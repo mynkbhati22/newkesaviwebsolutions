@@ -1,7 +1,11 @@
 import { React, useState } from "react";
 import { FaEthereum } from "react-icons/fa";
 import { SiBinance } from "react-icons/si";
+import meta from "./image/meta.png";
+import connect from "./image/connect.svg";
+import { BiSearchAlt } from "react-icons/bi";
 import DappNavbar from "./DappNavbar";
+import "./Dapp.css";
 
 export default function Dapp() {
   const [csvFile, setCsvFille] = useState();
@@ -135,216 +139,350 @@ export default function Dapp() {
     e.preventDefault();
     setResult(!result);
   };
+
+  // connect wallet
+  const [account, setAccount] = useState();
+
+  const connectMetamask = async () => {
+    if (window.ethereum) {
+      const add = await window.ethereum.enable();
+      setAccount(add[0]);
+      console.log(window.ethereum);
+    }
+  };
+
   return (
     <div>
       <DappNavbar />
       <section>
-        <div className="airdrop-container">
-          <div className="airdrop py-5 my-4">
-            <h4 className="text-center h3 fs-2 fw-bold">
-              Welcome to{" "}
-              <span className="kws-airdrop" style={{ color: "#22ABE3" }}>
-                KWS Airdrop
-              </span>
-            </h4>
-            <p className="text-center py-4">
-              A tool that allows you to batch send ERC20 tokens
-            </p>
-            <div className="coins text-center">
-              <FaEthereum />
-              <span style={{ paddingRight: "40px" }}>Ethereum Mainnet</span>
-              <SiBinance />
-              <span>BNB Smart Chain</span>
+        <div className="global-container">
+          <div className="nav2-area" style={{ marginTop: "50px" }}>
+            <div className="breadcrumb-area">
+              <nav aria-label="breadcrumb">
+                <ol className="breadcrumb">
+                  <li className="breadcrumb-item">
+                    <a href="/">Home</a>
+                  </li>
+                  <li className="breadcrumb-item">
+                    <a href="/">Library</a>
+                  </li>
+                  <li className="breadcrumb-item active" aria-current="page">
+                    Data
+                  </li>
+                </ol>
+              </nav>
             </div>
-            <div className="token-address">
-              <div className="search">
-                <label
-                  htmlFor="exampleFormControlInput1"
-                  className="form-label"
-                >
-                  Token Address
-                </label>
-                <input
-                  type="search"
-                  className="form-control"
-                  id="exampleFormControlInput1"
-                  placeholder="Select your Token"
-                />
-              </div>
-              <div className="form-check form-switch">
-                <label
-                  htmlFor=""
-                  className="d-block"
-                  data-bs-toggle="tooltip"
-                  data-bs-placement="top"
-                  title="please ignore this if your token isn't 
-                  deflationary. Most tokens are not so 
-                  leave it as is"
-                >
-                  Deflationary
-                </label>
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  role="switch"
-                  id="flexSwitchCheckChecked"
-                  style={{ border: "2px solid #22ABE3" }}
-                />
-              </div>
-            </div>
-            <div className="TXS-conatiner d-flex justify-content-evenly align-items-start">
-              <div className="txs ms-2">List of Addresses in CSV</div>
+            <div className="connect-wallet-area">
               <button
                 type="button"
-                className="border-0 bg-transparent"
+                className="btn btn-outline-primary"
                 data-bs-toggle="modal"
-                data-bs-target="#staticBackdrop"
+                data-bs-target="#exampleModal"
+                style={{ marginLeft: "10px" }}
               >
-                <p className="text-info">Show Sample CSV</p>
+                {account
+                  ? account.slice(0, 4) + "..." + account.slice(38)
+                  : "connect"}
               </button>
-
-              <div
-                className="modal fade"
-                id="staticBackdrop"
-                data-bs-backdrop="static"
-                data-bs-keyboard="false"
-                tabIndex="-1"
-                aria-labelledby="staticBackdropLabel"
-                aria-hidden="true"
-              >
-                <div className="modal-dialog">
-                  <div className="modal-content">
-                    <div className="modal-header">
-                      <h5 className="modal-title" id="staticBackdropLabel">
-                        Modal title
-                      </h5>
-                      <button
-                        type="button"
-                        className="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      ></button>
-                    </div>
-                    <div className="modal-body">...</div>
-                    <div className="modal-footer">
-                      <button
-                        type="button"
-                        className="btn btn-secondary"
-                        data-bs-dismiss="modal"
+            </div>
+          </div>
+          <div
+            className="modal fade"
+            id="exampleModal"
+            tabIndex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div className="modal-dialog modal-dialog-centered">
+              <div className="modal-content">
+                <div className="modal-header1 ">
+                  <h5
+                    className="modal-title m-auto text-black"
+                    id="exampleModalLabel "
+                  >
+                    Please Select Your Web3 Wallet
+                  </h5>
+                  <button
+                    type="button"
+                    className="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div className="modal-body d-flex justify-content-evenly">
+                  <div className="wallets-link">
+                    <button
+                      style={{ padding: "10px", borderRadius: "12px" }}
+                      onClick={connectMetamask}
+                    >
+                      <img
+                        src={meta}
+                        alt=""
+                        style={{
+                          width: "87px",
+                          display: "block",
+                          margin: "auto",
+                        }}
+                      />
+                      <h4
+                        className="wallets"
+                        style={{
+                          fontSize: "12px",
+                          fontWeight: "bold",
+                          textAlign: "center",
+                          marginTop: "10px",
+                        }}
                       >
-                        Close
-                      </button>
-                      <button type="button" className="btn btn-primary">
-                        Understood
-                      </button>
-                    </div>
+                        MetaMask
+                      </h4>{" "}
+                    </button>
+                  </div>
+                  <div
+                    className="wallets-link 
+                   w-25"
+                  >
+                    <button style={{ padding: "10px", borderRadius: "12px" }}>
+                      <img
+                        src={connect}
+                        alt=""
+                        style={{
+                          width: "70px",
+                          display: "block",
+                          margin: "auto",
+                        }}
+                      />
+                      <h4
+                        className="wallets"
+                        style={{
+                          fontSize: "12px",
+                          fontWeight: "bold",
+                          textAlign: "center",
+                          marginTop: "10px",
+                        }}
+                      >
+                        WalletConnect
+                      </h4>{" "}
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
-            <div
-              className="textarea"
-              style={{ maxWidth: "768px", margin: "auto" }}
-            >
-              <form action="" id="csv-form" onSubmit={ShowResult}>
-                <textarea
-                  className="form-control1"
-                  id="exampleFormControlTextarea1"
-                  rows="7"
-                  value={headers}
-                  onChange={(e) => setHeaders(e.target.value)}
-                  required
-                ></textarea>
-                <div
-                  className="button-container"
-                  style={{
-                    maxWidth: "768px",
-                    margin: "auto",
-                    paddingLeft: "45px",
-                    paddingTop: "10px",
-                  }}
-                >
-                  {/* <button className="btn btn-primary btn-lg fw-normal">Upload csv</button> */}
+          </div>
 
-                  <label
-                    htmlFor="csvFile"
-                    style={{
-                      border: "1px solid #22ABE3",
-                      padding: "7px",
-                      borderRadius: "7px",
-                      background: "#22ABE3",
-                      color: "white",
-                      cursor: "pointer",
-                      marginLeft: "-40px",
-                    }}
-                  >
-                    Choose file
-                  </label>
-                  <input
-                    className="d-none"
-                    type="file"
-                    accept=".csv"
-                    id="csvFile"
-                    onChange={(e) => {
-                      setCsvFille(e.target.files[0]);
-                    }}
-                  />
-                  <br />
-                  <button
-                    className="btn btn-primary fw-normal"
-                    style={{ marginTop: "8px", marginLeft: "-40px" }}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      if (csvFile) upload();
-                    }}
-                  >
-                    Upload
-                  </button>
-                  <button
-                    type="submit"
-                    className="btn btn-primary d-block m-auto"
-                    id="liveAlertBtn"
-                  >
-                    Next
-                  </button>
-                </div>{" "}
-              </form>
-            </div>
-
-            <div className="next-container">
-              <div id="liveAlertPlaceholder"></div>
-
-              {result ? (
-                <div
-                  className="textarea"
-                  style={{ maxWidth: "768px", margin: "auto" }}
-                >
-                  <div
-                    className="alert alert-danger my-4 text-center py-4"
-                    role="alert"
-                  >
-                    {duplicate}
-                  </div>
-                  <div className="buttons text-center">
-                    <button
-                      className="btn-primary p-2 fw-normal"
-                      style={{ marginRight: "10px" }}
-                    >
-                      Merge duplicates
-                    </button>
-                    <button className="btn-primary p-2 fw-normal">
-                      Proceed without merging
-                    </button>
-                  </div>
-                </div>
-              ) : (
-                ""
-              )}
+          <div className="container" style={{ marginTop: "65px" }}>
+            <div className="kws-airdrop">
+              <div className="kws-airdrop-content text-center">
+                <h2>
+                  <strong>Welcome to</strong>{" "}
+                  <span style={{ color: "#22abe3" }}>
+                    <b>KWS Airdrop</b>
+                  </span>
+                </h2>
+                <p className="fs-5 py-3">
+                  A tool that allows you to batch send ERC20 tokens
+                </p>
+              </div>
+              <div className="token-container text-center">
+                <span className="eth">
+                  <FaEthereum color="#22abe3" /> Ethereum Mainnet
+                </span>
+                <span className="bnb mx-3 fs-6">
+                  <SiBinance color="#22abe3" /> BNB Smart Chain
+                </span>
+              </div>
             </div>
           </div>
         </div>
-      </section>
+        <div
+          className="container"
+          style={{ maxWidth: "912px", margin: "auto" }}
+        >
+          <div className="airdrop-area">
+            <div className="form-area position-relative">
+              <form action="">
+                <label for="exampleInputSearch1" className="form-label">
+                  Token address
+                </label>
+                <input
+                  type="search"
+                  className="form-control px-4"
+                  placeholder="Select your Token"
+                  id="exampleInputSearch1"
+                  aria-describedby="searchlHelp"
+                />{" "}
+                <BiSearchAlt className="search-icon" size={20} />{" "}
+              </form>
+            </div>
 
+            <div className="form-check form-switch">
+              <label className="form-check-label" for="flexSwitchCheckDefault">
+                Deflationary
+              </label>
+              <input
+                className="form-check-input"
+                type="checkbox"
+                role="switch"
+                id="flexSwitchCheckDefault"
+              />
+            </div>
+          </div>
+          <div
+            className="texta-area d-flex justify-content-between align-items-center"
+            style={{ maxWidth: "690px", margin: "20px auto" }}
+          >
+            {" "}
+            <label htmlFor="" className="list">
+              List of Address in CSV
+            </label>
+            <button
+              type="button"
+              className="border border-0 bg-transparent"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+              style={{ color: "#22ABE3" }}
+            >
+              Show sample CSV
+            </button>
+            <div
+              className="modal fade"
+              id="exampleModal"
+              tabIndex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div className="modal-dialog modal-dialog-centered">
+                <div className="modal-content">
+                  <div className="modal-header">
+                    <h5 className="modal-title" id="exampleModalLabel">
+                      Modal title
+                    </h5>
+                    <button
+                      type="button"
+                      className="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div className="modal-body text-black">
+                    <ul className="list-items">
+                      <li className="list-style">
+                        0x6c6ACA39A8AcEf16a32aF2Cb8c74Fc91d4f5cF3e,0.000056
+                      </li>
+                      <li className="list-style">romanstorm.eth,12</li>
+                      <li className="list-style">
+                        0xC8c30Fa803833dD1Fd6DBCDd91Ed0b301EFf87cF,13.45
+                      </li>
+                      <li className="list-style">
+                        0x7D52422D3A5fE9bC92D3aE8167097eE09F1b347d,1.049
+                      </li>
+                      <li className="list-style">
+                        0x64c9525A3c3a65Ea88b06f184F074C2499578A7E,1
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="textarea">
+            <form action="" className="ta" id="csv-form" onSubmit={ShowResult}>
+              <textarea
+                id="exampleFormControlTextarea"
+                rows="7"
+                className="form-control"
+                value={headers}
+                onChange={(e) => setHeaders(e.target.value)}
+                required
+              ></textarea>
+
+              <div
+                className="button-container"
+                style={{
+                  maxWidth: "768px",
+                  margin: "auto",
+                  paddingLeft: "45px",
+                  paddingTop: "10px",
+                }}
+              >
+                <label
+                  htmlFor="csvFile"
+                  style={{
+                    border: "1px solid #22ABE3",
+                    padding: "7px",
+                    borderRadius: "7px",
+                    background: "#22ABE3",
+                    color: "white",
+                    cursor: "pointer",
+                    marginLeft: "-40px",
+                  }}
+                >
+                  Choose file
+                </label>
+                <input
+                  className="d-none"
+                  type="file"
+                  accept=".csv"
+                  id="csvFile"
+                  onChange={(e) => {
+                    setCsvFille(e.target.files[0]);
+                  }}
+                />
+                <br />
+                <button
+                  className="btn btn-primary fw-normal"
+                  style={{ marginTop: "8px", marginLeft: "-40px" }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (csvFile) upload();
+                  }}
+                  required
+                >
+                  Upload
+                </button>
+                <button
+                  type="submit"
+                  className=" button btn btn-primary"
+                  id="liveAlertBtn"
+                >
+                  Next
+                </button>
+              </div>
+            </form>{" "}
+          </div>
+
+          <div className="next-container">
+            <div id="liveAlertPlaceholder"></div>
+
+            {result ? (
+              <div
+                className="textarea"
+                style={{ maxWidth: "768px", margin: "auto" }}
+              >
+                <div
+                  className="alert alert-danger my-4 text-center py-4"
+                  role="alert"
+                >
+                  {duplicate}
+                </div>
+                <div className="buttons text-center">
+                  <button
+                    className="btn-primary p-2 fw-normal"
+                    style={{ marginRight: "10px" }}
+                  >
+                    Merge duplicates
+                  </button>
+                  <button className="btn-primary p-2 fw-normal">
+                    Proceed without merging
+                  </button>
+                </div>
+              </div>
+            ) : (
+              ""
+            )}
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
