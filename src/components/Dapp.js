@@ -173,8 +173,11 @@ export default function Dapp() {
                 </ol>
               </nav>
             </div>
+           
+           
+           
             {/* SWITCH NETWORK */}
-            <div className="switch-network">
+            {/* <div className="switch-network">
               <button
                 type="button"
                 className="btn btn-outline-primary"
@@ -239,7 +242,9 @@ export default function Dapp() {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
+
+            {/* CONNECT WALLET MODAL */}
             <div className="connect-wallet-area">
               <button
                 type="button"
@@ -255,7 +260,6 @@ export default function Dapp() {
             </div>
           </div>
 
-          {/* CONNECT WALLET MODAL */}
           <div
             className="modal fade"
             id="exampleModal"
@@ -263,9 +267,9 @@ export default function Dapp() {
             aria-labelledby="exampleModalLabel"
             aria-hidden="true"
           >
-            <div className="modal-dialog modal-dialog-centered">
+            <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
               <div className="modal-content">
-                <div className="modal-header1 ">
+                <div className="modal-header">
                   <h5
                     className="modal-title m-auto text-black"
                     id="exampleModalLabel "
