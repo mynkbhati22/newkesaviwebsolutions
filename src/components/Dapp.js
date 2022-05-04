@@ -133,6 +133,7 @@ export default function Dapp() {
 
     reader.readAsText(file);
   };
+
   //  RESULTS
   const [result, setResult] = useState(false);
   const ShowResult = (e) => {
@@ -164,13 +165,80 @@ export default function Dapp() {
                     <a href="/">Home</a>
                   </li>
                   <li className="breadcrumb-item">
-                    <a href="/">Library</a>
+                    <a href="/createToken/ETH">Create Token</a>
                   </li>
                   <li className="breadcrumb-item active" aria-current="page">
                     Data
                   </li>
                 </ol>
               </nav>
+            </div>
+            {/* SWITCH NETWORK */}
+            <div className="switch-network">
+              <button
+                type="button"
+                className="btn btn-outline-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+              >
+                <FaEthereum style={{ cursor: "default" }} />
+              </button>
+
+              <div
+                className="modal fade"
+                id="exampleModal"
+                tabIndex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div className="modal-dialog">
+                  <div className="modal-content">
+                    <div className="modal-header text-black">
+                      <h5
+                        className="modal-title ms-auto fs-3 fw-bolder"
+                        id="exampleModalLabel"
+                      >
+                        Change Network
+                      </h5>
+                      <button
+                        type="button"
+                        className="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div
+                      className="modal-body text-black d-flex justify-content-center"
+                      style={{ marginBottom: "20px" }}
+                    >
+                      <div className="bnb-network">
+                        <button
+                          style={{
+                            padding: "10px",
+                            fontSize: "20px",
+                            cursor: "default",
+                          }}
+                        >
+                          {" "}
+                          <SiBinance /> BNB Smart Chain
+                        </button>
+                      </div>
+                      <div className="eth-network">
+                        <button
+                          style={{
+                            padding: "10px",
+                            marginLeft: "20px",
+                            fontSize: "20px",
+                            cursor: "default",
+                          }}
+                        >
+                          <FaEthereum /> Ethereum Mainnet
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div className="connect-wallet-area">
               <button
@@ -186,6 +254,8 @@ export default function Dapp() {
               </button>
             </div>
           </div>
+
+          {/* CONNECT WALLET MODAL */}
           <div
             className="modal fade"
             id="exampleModal"
@@ -300,7 +370,7 @@ export default function Dapp() {
           <div className="airdrop-area">
             <div className="form-area position-relative">
               <form action="">
-                <label for="exampleInputSearch1" className="form-label">
+                <label htmlFor="exampleInputSearch1" className="form-label">
                   Token address
                 </label>
                 <input
@@ -315,7 +385,10 @@ export default function Dapp() {
             </div>
 
             <div className="form-check form-switch">
-              <label className="form-check-label" for="flexSwitchCheckDefault">
+              <label
+                className="form-check-label"
+                htmlFor="flexSwitchCheckDefault"
+              >
                 Deflationary
               </label>
               <input
@@ -334,57 +407,49 @@ export default function Dapp() {
             <label htmlFor="" className="list">
               List of Address in CSV
             </label>
-            <button
-              type="button"
+            <span
               className="border border-0 bg-transparent"
+              type="button"
               data-bs-toggle="modal"
-              data-bs-target="#exampleModal"
+              data-bs-target="#staticBackdrop"
               style={{ color: "#22ABE3" }}
             >
               Show sample CSV
-            </button>
-            <div
-              className="modal fade"
-              id="exampleModal"
-              tabIndex="-1"
-              aria-labelledby="exampleModalLabel"
-              aria-hidden="true"
-            >
-              <div className="modal-dialog modal-dialog-centered">
-                <div className="modal-content">
-                  <div className="modal-header">
-                    <h5 className="modal-title" id="exampleModalLabel">
-                      Modal title
-                    </h5>
-                    <button
-                      type="button"
-                      className="btn-close"
-                      data-bs-dismiss="modal"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-                  <div className="modal-body text-black">
-                    <ul className="list-items">
-                      <li className="list-style">
-                        0x6c6ACA39A8AcEf16a32aF2Cb8c74Fc91d4f5cF3e,0.000056
-                      </li>
-                      <li className="list-style">romanstorm.eth,12</li>
-                      <li className="list-style">
-                        0xC8c30Fa803833dD1Fd6DBCDd91Ed0b301EFf87cF,13.45
-                      </li>
-                      <li className="list-style">
-                        0x7D52422D3A5fE9bC92D3aE8167097eE09F1b347d,1.049
-                      </li>
-                      <li className="list-style">
-                        0x64c9525A3c3a65Ea88b06f184F074C2499578A7E,1
-                      </li>
-                    </ul>
-                  </div>
+            </span>
+          </div>
+          {/* SAMPLE CSV MODAL */}
+
+          <div
+            className="modal fade"
+            id="staticBackdrop"
+            data-bs-backdrop="static"
+            data-bs-keyboard="false"
+            tabIndex="-1"
+            aria-labelledby="staticBackdropLabel"
+            aria-hidden="true"
+          >
+            <div className="modal-dialog modal-dialog-centered">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <button
+                    type="button"
+                    className="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div className="modal-body text-black">
+                  <ol className="sample">
+                    <li>0xD920c4E59Be4F59b5B0F5b5C4ed4C9D9f98749b6,0.000056</li>
+                    <li> romanstorm.eth,12</li>
+                    <li>0xC8c30Fa803833dD1Fd6DBCDd91Ed0b301EFf87cF,13.45</li>
+                    <li>0x7D52422D3A5fE9bC92D3aE8167097eE09F1b347d,1.049</li>
+                    <li>0x64c9525A3c3a65Ea88b06f184F074C2499578A7E,1</li>
+                  </ol>
                 </div>
               </div>
             </div>
           </div>
-
           <div className="textarea">
             <form action="" className="ta" id="csv-form" onSubmit={ShowResult}>
               <textarea
@@ -436,7 +501,6 @@ export default function Dapp() {
                     e.preventDefault();
                     if (csvFile) upload();
                   }}
-                  required
                 >
                   Upload
                 </button>
