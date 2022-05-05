@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import { FaEthereum } from "react-icons/fa";
 import { SiBinance } from "react-icons/si";
 import meta from "./image/meta.png";
@@ -6,6 +6,9 @@ import connect from "./image/connect.svg";
 import { BiSearchAlt } from "react-icons/bi";
 import DappNavbar from "./DappNavbar";
 import "./Dapp.css";
+import Web3 from "web3";
+const web3 = new Web3(window.ethereum);
+console.log(web3);
 
 export default function Dapp() {
   const [csvFile, setCsvFille] = useState();
@@ -152,6 +155,28 @@ export default function Dapp() {
     }
   };
 
+  // Change Network
+  const changeNetwork = async (chainId) => {
+    if (window.ethereum) {
+      try {
+        await web3.currentProvider.request({
+          method: "wallet_switchEthereumChain",
+          params: [{ chainId: web3.utils.toHex(chainId) }],
+        });
+      } catch (e) {}
+    }
+  };
+
+  // switch icon
+  const [chainid, setChainId] = useState(0);
+
+  // get chainID
+  useEffect(async () => {
+    const ID = await web3.eth.getChainId();
+    console.log(ID);
+    setChainId(ID);
+  }, []);
+
   return (
     <div>
       <DappNavbar />
@@ -167,82 +192,59 @@ export default function Dapp() {
                   <li className="breadcrumb-item">
                     <a href="/createToken/ETH">Create Token</a>
                   </li>
-                  <li className="breadcrumb-item active" aria-current="page">
-                    Data
-                  </li>
                 </ol>
               </nav>
             </div>
-           
-           
-           
-            {/* SWITCH NETWORK */}
-            {/* <div className="switch-network">
-              <button
-                type="button"
-                className="btn btn-outline-primary"
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModal"
-              >
-                <FaEthereum style={{ cursor: "default" }} />
-              </button>
 
-              <div
-                className="modal fade"
-                id="exampleModal"
-                tabIndex="-1"
-                aria-labelledby="exampleModalLabel"
-                aria-hidden="true"
-              >
-                <div className="modal-dialog">
-                  <div className="modal-content">
-                    <div className="modal-header text-black">
-                      <h5
-                        className="modal-title ms-auto fs-3 fw-bolder"
-                        id="exampleModalLabel"
-                      >
-                        Change Network
-                      </h5>
-                      <button
-                        type="button"
-                        className="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      ></button>
-                    </div>
-                    <div
-                      className="modal-body text-black d-flex justify-content-center"
-                      style={{ marginBottom: "20px" }}
-                    >
-                      <div className="bnb-network">
-                        <button
-                          style={{
-                            padding: "10px",
-                            fontSize: "20px",
-                            cursor: "default",
-                          }}
-                        >
-                          {" "}
-                          <SiBinance /> BNB Smart Chain
-                        </button>
-                      </div>
-                      <div className="eth-network">
-                        <button
-                          style={{
-                            padding: "10px",
-                            marginLeft: "20px",
-                            fontSize: "20px",
-                            cursor: "default",
-                          }}
-                        >
-                          <FaEthereum /> Ethereum Mainnet
-                        </button>
-                      </div>
-                    </div>
-                  </div>
+            {/* SWITCH NETWORK */}
+            <div id="wrapper">
+              <p>
+                <a className="button" href="#popup1">
+                  {chainid === 1 ? <FaEthereum /> : ""}
+                  {chainid === 56 ? <SiBinance /> : ""}
+                </a>
+              </p>
+            </div>
+
+            <div id="popup1" className="overlay">
+              <div className="popup">
+                <h2>Change Network</h2>
+                <a className="close" href="/airdrop">
+                  &times;
+                </a>
+                <div className="content">
+                  <p
+                    style={{
+                      border: "1px solid",
+                      padding: "7px",
+                      textAlign: "center",
+                      cursor: "default",
+                      background: "black",
+                      color: "white",
+                    }}
+                    onClick={() => changeNetwork(56)}
+                  >
+                    <SiBinance />
+                    Binance Smart Chain
+                  </p>
+                  <p
+                    style={{
+                      border: "1px solid",
+                      padding: "7px",
+                      textAlign: "center",
+                      marginLeft: "10px",
+                      cursor: "default",
+                      background: "black",
+                      color: "white",
+                    }}
+                    onClick={() => changeNetwork(1)}
+                  >
+                    <FaEthereum />
+                    ETHEREUM MAINNET
+                  </p>
                 </div>
               </div>
-            </div> */}
+            </div>
 
             {/* CONNECT WALLET MODAL */}
             <div className="connect-wallet-area">
@@ -251,7 +253,7 @@ export default function Dapp() {
                 className="btn btn-outline-primary"
                 data-bs-toggle="modal"
                 data-bs-target="#exampleModal"
-                style={{ marginLeft: "10px" }}
+                style={{ marginLeft: "10px", cursor: "default" }}
               >
                 {account
                   ? account.slice(0, 4) + "..." + account.slice(38)

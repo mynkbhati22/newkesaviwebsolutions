@@ -56,7 +56,7 @@ export default function DappNavbar() {
   return (
     <div>
       <div
-        className="sidebar-container position-absolute"
+        className="sidebar-container position-fixed"
         style={{ top: "0", left: "0" }}
       >
         <motion.div
@@ -71,7 +71,7 @@ export default function DappNavbar() {
           className="sidebar"
         >
           <div className="sidebar-logo">
-            <div className="bars">
+            <div className="bars d-md-none">
               {<FaBars color="#000000" size={22} onClick={toggle} />}
             </div>
             <div className="logo">
