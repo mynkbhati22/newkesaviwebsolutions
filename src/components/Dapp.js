@@ -4,6 +4,7 @@ import { SiBinance } from "react-icons/si";
 import meta from "./image/meta.png";
 import connect from "./image/connect.svg";
 import { BiSearchAlt } from "react-icons/bi";
+import { AiOutlineLogout } from "react-icons/ai";
 import DappNavbar from "./DappNavbar";
 import "./Dapp.css";
 import Web3 from "web3";
@@ -151,6 +152,7 @@ export default function Dapp() {
     if (window.ethereum) {
       const add = await window.ethereum.enable();
       setAccount(add[0]);
+      setIsConnected(!isconnected);
       console.log(window.ethereum);
     }
   };
@@ -173,9 +175,17 @@ export default function Dapp() {
   // get chainID
   useEffect(async () => {
     const ID = await web3.eth.getChainId();
-    console.log(ID);
+    console.log("chain ID", ID);
     setChainId(ID);
+    await connectMetamask();
   }, []);
+
+  // icon disappear and logout
+  const [isconnected, setIsConnected] = useState(false);
+  const logOut = () => {
+    setAccount(undefined);
+    setIsConnected(!isconnected);
+  };
 
   return (
     <div>
@@ -259,6 +269,24 @@ export default function Dapp() {
                   ? account.slice(0, 4) + "..." + account.slice(38)
                   : "connect"}
               </button>
+
+              {isconnected ? (
+                <AiOutlineLogout
+                  className="logout"
+                  onClick={() => logOut()}
+                  style={{
+                    marginLeft: "5px",
+                    cursor: "pointer",
+                    border: "1px solid #0d6efd",
+                    padding: "5px",
+                    color: "0d6efd",
+                    transition: "0.5s",
+                  }}
+                  size={30}
+                />
+              ) : (
+                ""
+              )}
             </div>
           </div>
 
@@ -461,7 +489,7 @@ export default function Dapp() {
               <textarea
                 id="exampleFormControlTextarea"
                 rows="7"
-                className="form-control"
+                className="form-controls"
                 value={headers}
                 onChange={(e) => setHeaders(e.target.value)}
                 required
