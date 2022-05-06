@@ -3,16 +3,18 @@ import { FaEthereum } from "react-icons/fa";
 import { SiBinance } from "react-icons/si";
 import meta from "./image/meta.png";
 import connect from "./image/connect.svg";
-import { BiSearchAlt } from "react-icons/bi";
+import { BiSearchAlt2 } from "react-icons/bi";
 import { AiOutlineLogout } from "react-icons/ai";
 import DappNavbar from "./DappNavbar";
 import "./Dapp.css";
 import Web3 from "web3";
 const web3 = new Web3(window.ethereum);
 console.log(web3);
+const eth = "Ethereum Mainnet Native Currency";
 
 export default function Dapp() {
   const [csvFile, setCsvFille] = useState();
+  const [showdata, setShowData] = useState("");
   // []
   const [headers, setHeaders] = useState([]);
 
@@ -185,6 +187,13 @@ export default function Dapp() {
   const logOut = () => {
     setAccount(undefined);
     setIsConnected(!isconnected);
+  };
+
+  // eth native currency
+  const [showdropdown, setShowDropDown] = useState(false);
+
+  const Showdropdown = () => {
+    setShowDropDown(!showdropdown);
   };
 
   return (
@@ -407,14 +416,37 @@ export default function Dapp() {
                 <label htmlFor="exampleInputSearch1" className="form-label">
                   Token address
                 </label>
-                <input
-                  type="search"
-                  className="form-control px-4"
-                  placeholder="Select your Token"
-                  id="exampleInputSearch1"
-                  aria-describedby="searchlHelp"
-                />{" "}
-                <BiSearchAlt className="search-icon" size={20} />{" "}
+                <div className="heroSearch">
+                  <BiSearchAlt2 id="searchIco" />
+                  <input
+                    type="text"
+                    placeholder="Select your Token"
+                    onClick={() => Showdropdown()}
+                    value={showdata}
+                  />
+                </div>
+                {showdropdown ? (
+                  <div className="dropdown">
+                    <div className="dropdown-area-box">
+                      <p
+                        style={{
+                          color: "#000000",
+                          marginBottom: "12px",
+                          padding: "10px 23px 0px",
+                          textAlign: "start",
+                        }}
+                        onClick={() => {
+                          setShowData(eth);
+                          setShowDropDown(false);
+                        }}
+                      >
+                        ETH-0-Ethereum Mainnet Native Currency
+                      </p>
+                    </div>
+                  </div>
+                ) : (
+                  ""
+                )}
               </form>
             </div>
 
@@ -489,7 +521,7 @@ export default function Dapp() {
               <textarea
                 id="exampleFormControlTextarea"
                 rows="7"
-                className="form-controls"
+                className="form-control"
                 value={headers}
                 onChange={(e) => setHeaders(e.target.value)}
                 required

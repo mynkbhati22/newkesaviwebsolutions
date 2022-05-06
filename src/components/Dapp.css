@@ -10,6 +10,7 @@ img.logo-img {
   display: flex;
   justify-content: space-evenly;
 }
+
 .form-control {
   display: block;
   width: 100%;
@@ -20,23 +21,7 @@ img.logo-img {
   color: #212529;
   background-color: #fff;
   background-clip: padding-box;
-  border: 2px solid #0d6efd;
-  -webkit-appearance: none;
-  appearance: none;
-  border-radius: 0.25rem;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-.form-controls {
-  display: block;
-  width: 100%;
-  padding: 0.7rem !important;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #212529;
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 2px solid #0d6efd;
+  border: 2px solid #0d6efd !important;
   -webkit-appearance: none;
   appearance: none;
   border-radius: 0.25rem;
@@ -67,7 +52,7 @@ label.form-check-label {
 }
 .search-icon {
   position: absolute;
-  top: 57%;
+  top: 40%;
   left: 1%;
 }
 textarea#exampleFormControlTextarea {
@@ -206,6 +191,29 @@ li.list-style {
   color: #fff !important;
 }
 
+/* dropdown */
+.dropdown {
+  border: 2px solid #0d6efd;
+  margin-top: 0px;
+  border-radius: "5px";
+}
+.heroSearch {
+  border: 2px solid #0d6efd;
+  width: 100%;
+  padding: 15px 10px;
+  border-radius: 5px;
+}
+.heroSearch input {
+  background-color: transparent;
+  border: none;
+  color: #000000;
+  outline: none;
+}
+#searchIco {
+  font-size: 24px;
+  color: #000000;
+  margin: auto;
+}
 /* media qurey */
 
 @media screen and (max-width: 540px) {
