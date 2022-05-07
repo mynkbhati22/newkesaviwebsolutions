@@ -199,15 +199,17 @@ li.list-style {
 }
 .heroSearch {
   border: 2px solid #0d6efd;
-  width: 100%;
   padding: 15px 10px;
   border-radius: 5px;
+  display: flex;
+  align-items: center;
 }
 .heroSearch input {
   background-color: transparent;
   border: none;
   color: #000000;
   outline: none;
+  width: 100%;
 }
 #searchIco {
   font-size: 24px;

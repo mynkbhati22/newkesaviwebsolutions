@@ -13,6 +13,9 @@ import { AiFillCopyrightCircle } from "react-icons/ai";
 import logo from "./image/logo.png";
 import "./DappNavbar.css";
 import { NavLink } from "react-router-dom";
+import Web3 from "web3";
+const web3 = new Web3(window.ethereum);
+console.log(web3);
 
 export default function DappNavbar() {
   const sidebarInfo = [
@@ -53,6 +56,7 @@ export default function DappNavbar() {
       },
     },
   };
+
   return (
     <div>
       <div
@@ -63,6 +67,7 @@ export default function DappNavbar() {
           animate={{
             width: open ? "288px" : "50px",
             background: open ? "#ffff" : "#22ABE3",
+
             transition: {
               duration: 0.6,
               type: "keyframes",

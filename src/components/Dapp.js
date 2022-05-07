@@ -10,11 +10,10 @@ import "./Dapp.css";
 import Web3 from "web3";
 const web3 = new Web3(window.ethereum);
 console.log(web3);
-const eth = "Ethereum Mainnet Native Currency";
 
 export default function Dapp() {
   const [csvFile, setCsvFille] = useState();
-  const [showdata, setShowData] = useState("");
+
   // []
   const [headers, setHeaders] = useState([]);
 
@@ -206,10 +205,20 @@ export default function Dapp() {
               <nav aria-label="breadcrumb">
                 <ol className="breadcrumb">
                   <li className="breadcrumb-item">
-                    <a href="/">Home</a>
+                    <a
+                      href="/"
+                      style={{ textDecoration: "none", color: "#47a5e9" }}
+                    >
+                      Home
+                    </a>
                   </li>
                   <li className="breadcrumb-item">
-                    <a href="/createToken/ETH">Create Token</a>
+                    <a
+                      href="/createToken/ETH"
+                      style={{ textDecoration: "none", color: "#47a5e9" }}
+                    >
+                      Create Token
+                    </a>
                   </li>
                 </ol>
               </nav>
@@ -422,10 +431,10 @@ export default function Dapp() {
                     type="text"
                     placeholder="Select your Token"
                     onClick={() => Showdropdown()}
-                    value={showdata}
                   />
                 </div>
-                {showdropdown ? (
+
+                {chainid === 1 && showdropdown ? (
                   <div className="dropdown">
                     <div className="dropdown-area-box">
                       <p
@@ -434,13 +443,35 @@ export default function Dapp() {
                           marginBottom: "12px",
                           padding: "10px 23px 0px",
                           textAlign: "start",
+                          cursor: "default",
                         }}
                         onClick={() => {
-                          setShowData(eth);
                           setShowDropDown(false);
                         }}
                       >
                         ETH-0-Ethereum Mainnet Native Currency
+                      </p>
+                    </div>
+                  </div>
+                ) : (
+                  ""
+                )}
+                {chainid === 56 && showdropdown ? (
+                  <div className="dropdown">
+                    <div className="dropdown-area-box">
+                      <p
+                        style={{
+                          color: "#000000",
+                          marginBottom: "12px",
+                          padding: "10px 23px 0px",
+                          textAlign: "start",
+                          cursor: "default",
+                        }}
+                        onClick={() => {
+                          setShowDropDown(false);
+                        }}
+                      >
+                        BNB-0-BNB Smart Chain Native Currency
                       </p>
                     </div>
                   </div>
