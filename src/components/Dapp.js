@@ -5,7 +5,6 @@ import meta from "./image/meta.png";
 import connect from "./image/connect.svg";
 import { BiSearchAlt2 } from "react-icons/bi";
 import { AiOutlineLogout } from "react-icons/ai";
-import DappNavbar from "./DappNavbar";
 import "./Dapp.css";
 import Web3 from "web3";
 const web3 = new Web3(window.ethereum);
@@ -13,6 +12,7 @@ console.log(web3);
 
 export default function Dapp() {
   const [csvFile, setCsvFille] = useState();
+  const [datavalue, setDatavalue] = useState("");
 
   // []
   const [headers, setHeaders] = useState([]);
@@ -178,7 +178,6 @@ export default function Dapp() {
     const ID = await web3.eth.getChainId();
     console.log("chain ID", ID);
     setChainId(ID);
-    await connectMetamask();
   }, []);
 
   // icon disappear and logout
@@ -188,6 +187,26 @@ export default function Dapp() {
     setIsConnected(!isconnected);
   };
 
+  // get balance
+
+  const web3 = new Web3(window.ethereum);
+
+  web3.eth.getBalance(
+    "0xdBd21416Da1207Bfb66BDf3baBE16538f112b706",
+    function (err, result) {
+      if (err) {
+        console.log(err);
+      } else {
+        setGetBalance(web3.utils.fromWei(result, "ether") + "");
+        console.log(web3.utils.fromWei(result, "ether") + " ETH");
+      }
+    }
+  );
+
+  const [getbalance, setGetBalance] = useState(0);
+  const ShowBalance = () => {
+    setGetBalance(!getbalance);
+  };
   // eth native currency
   const [showdropdown, setShowDropDown] = useState(false);
 
@@ -195,9 +214,12 @@ export default function Dapp() {
     setShowDropDown(!showdropdown);
   };
 
+  // show Natvie
+
+  const [shownative, setShowNative] = useState(false);
+
   return (
     <div>
-      <DappNavbar />
       <section>
         <div className="global-container">
           <div className="nav2-area" style={{ marginTop: "50px" }}>
@@ -228,8 +250,12 @@ export default function Dapp() {
             <div id="wrapper">
               <p>
                 <a className="button" href="#popup1">
+                  {chainid === 0 ? <FaEthereum /> : ""}
                   {chainid === 1 ? <FaEthereum /> : ""}
                   {chainid === 56 ? <SiBinance /> : ""}
+                  {chainid === 4 ? <FaEthereum color="black" /> : ""}
+                  {chainid === 3 ? <FaEthereum color="red" /> : ""}
+                  {chainid === 97 ? <SiBinance /> : ""}
                 </a>
               </p>
             </div>
@@ -260,6 +286,20 @@ export default function Dapp() {
                       border: "1px solid",
                       padding: "7px",
                       textAlign: "center",
+                      cursor: "default",
+                      background: "black",
+                      color: "white",
+                    }}
+                    onClick={() => changeNetwork(97)}
+                  >
+                    <SiBinance />
+                    Binance Smart Chain TESTNET
+                  </p>
+                  <p
+                    style={{
+                      border: "1px solid",
+                      padding: "7px",
+                      textAlign: "center",
                       marginLeft: "10px",
                       cursor: "default",
                       background: "black",
@@ -269,6 +309,36 @@ export default function Dapp() {
                   >
                     <FaEthereum />
                     ETHEREUM MAINNET
+                  </p>
+                  <p
+                    style={{
+                      border: "1px solid",
+                      padding: "7px",
+                      textAlign: "center",
+                      marginLeft: "10px",
+                      cursor: "default",
+                      background: "black",
+                      color: "white",
+                    }}
+                    onClick={() => changeNetwork(4)}
+                  >
+                    <FaEthereum />
+                    RIKNEBY TESTNET
+                  </p>
+                  <p
+                    style={{
+                      border: "1px solid",
+                      padding: "7px",
+                      textAlign: "center",
+                      marginLeft: "10px",
+                      cursor: "default",
+                      background: "black",
+                      color: "white",
+                    }}
+                    onClick={() => changeNetwork(3)}
+                  >
+                    <FaEthereum />
+                    ROPSTEN TESTNET
                   </p>
                 </div>
               </div>
@@ -422,19 +492,32 @@ export default function Dapp() {
           <div className="airdrop-area">
             <div className="form-area position-relative">
               <form action="">
-                <label htmlFor="exampleInputSearch1" className="form-label">
-                  Token address
-                </label>
+                <div className="labels d-flex justify-content-between">
+                  <label htmlFor="exampleInputSearch1" className="form-label">
+                    Token address
+                  </label>
+                  {getbalance && account && datavalue ? (
+                    <label htmlFor="exampleInputSearch1" className="form-label">
+                      Balance: {getbalance}
+                    </label>
+                  ) : (
+                    ""
+                  )}
+                </div>
                 <div className="heroSearch">
                   <BiSearchAlt2 id="searchIco" />
                   <input
                     type="text"
+                    value={datavalue}
                     placeholder="Select your Token"
-                    onClick={() => Showdropdown()}
+                    onClick={() => {
+                      Showdropdown();
+                    }}
                   />
                 </div>
 
-                {chainid === 1 && showdropdown ? (
+                {/* WHEN WALLET IS CONNECTED */}
+                {chainid === 1 && account && showdropdown ? (
                   <div className="dropdown">
                     <div className="dropdown-area-box">
                       <p
@@ -447,16 +530,18 @@ export default function Dapp() {
                         }}
                         onClick={() => {
                           setShowDropDown(false);
+                          ShowBalance();
+                          setDatavalue(`Ethereum Mainnet Native Currency`);
                         }}
                       >
-                        ETH-0-Ethereum Mainnet Native Currency
+                        ETH-{getbalance}-Ethereum Mainnet Native Currency
                       </p>
                     </div>
                   </div>
                 ) : (
                   ""
                 )}
-                {chainid === 56 && showdropdown ? (
+                {chainid === 97 && account && showdropdown ? (
                   <div className="dropdown">
                     <div className="dropdown-area-box">
                       <p
@@ -469,9 +554,110 @@ export default function Dapp() {
                         }}
                         onClick={() => {
                           setShowDropDown(false);
+                          setDatavalue(`BNB Smart Chain Native Currency`);
                         }}
                       >
-                        BNB-0-BNB Smart Chain Native Currency
+                        BNB-{getbalance}-BNB Smart Chain Native Currency
+                      </p>
+                    </div>
+                  </div>
+                ) : (
+                  ""
+                )}
+
+                {/* RINKEYBY TESTNET */}
+
+                {chainid === 4 && account && showdropdown ? (
+                  <div className="dropdown">
+                    <div className="dropdown-area-box">
+                      <p
+                        style={{
+                          color: "#000000",
+                          marginBottom: "12px",
+                          padding: "10px 23px 0px",
+                          textAlign: "start",
+                          cursor: "default",
+                        }}
+                        onClick={() => {
+                          setShowDropDown(false);
+                          ShowBalance();
+                          setDatavalue(`RINKEYBY Native Currency`);
+                        }}
+                      >
+                        RINKYBY-{getbalance}-RINKYBY TESTNET
+                      </p>
+                    </div>
+                  </div>
+                ) : (
+                  ""
+                )}
+                {chainid === 3 && account && showdropdown ? (
+                  <div className="dropdown">
+                    <div className="dropdown-area-box">
+                      <p
+                        style={{
+                          color: "#000000",
+                          marginBottom: "12px",
+                          padding: "10px 23px 0px",
+                          textAlign: "start",
+                          cursor: "default",
+                        }}
+                        onClick={() => {
+                          setShowDropDown(false);
+                          ShowBalance();
+                          setDatavalue(`ROPSTEN Native Currency`);
+                        }}
+                      >
+                        ROPSTEN-{getbalance}-ROPSTEN TESTNET
+                      </p>
+                    </div>
+                  </div>
+                ) : (
+                  ""
+                )}
+
+                {/* WHEN WALELT IS NOT CONNECTED */}
+
+                {chainid === 1 && !account && shownative ? (
+                  <div className="dropdown">
+                    <div className="dropdown-area-box">
+                      <p
+                        style={{
+                          color: "#000000",
+                          marginBottom: "12px",
+                          padding: "10px 23px 0px",
+                          textAlign: "start",
+                          cursor: "default",
+                        }}
+                        onClick={() => {
+                          setShowDropDown(false);
+                          setShowNative(false);
+                        }}
+                      >
+                        Native Currency
+                      </p>
+                    </div>
+                  </div>
+                ) : (
+                  ""
+                )}
+                {chainid === 56 && !account && shownative ? (
+                  <div className="dropdown">
+                    <div className="dropdown-area-box">
+                      <p
+                        style={{
+                          color: "#000000",
+                          marginBottom: "12px",
+                          padding: "10px 23px 0px",
+                          textAlign: "start",
+                          cursor: "default",
+                        }}
+                        onClick={() => {
+                          setShowDropDown(false);
+                          setShowNative(false);
+                        }}
+                      >
+                        Native Currency
                       </p>
                     </div>
                   </div>
@@ -498,7 +684,7 @@ export default function Dapp() {
           </div>
           <div
             className="texta-area d-flex justify-content-between align-items-center"
-            style={{ maxWidth: "690px", margin: "20px auto" }}
+            style={{ maxWidth: "690px", margin: "30px auto 19px" }}
           >
             {" "}
             <label htmlFor="" className="list">
@@ -509,7 +695,7 @@ export default function Dapp() {
               type="button"
               data-bs-toggle="modal"
               data-bs-target="#staticBackdrop"
-              style={{ color: "#22ABE3" }}
+              style={{ color: "#22ABE3", marginBottom: "-11px" }}
             >
               Show sample CSV
             </span>
@@ -537,11 +723,19 @@ export default function Dapp() {
                 </div>
                 <div className="modal-body text-black">
                   <ol className="sample">
-                    <li>0xD920c4E59Be4F59b5B0F5b5C4ed4C9D9f98749b6,0.000056</li>
-                    <li> romanstorm.eth,12</li>
-                    <li>0xC8c30Fa803833dD1Fd6DBCDd91Ed0b301EFf87cF,13.45</li>
-                    <li>0x7D52422D3A5fE9bC92D3aE8167097eE09F1b347d,1.049</li>
-                    <li>0x64c9525A3c3a65Ea88b06f184F074C2499578A7E,1</li>
+                    <li className="sample-items">
+                      0xD920c4E59Be4F59b5B0F5b5C4ed4C9D9f98749b6,0.000056
+                    </li>
+                    <li className="sample-items"> romanstorm.eth,12</li>
+                    <li className="sample-items">
+                      0xC8c30Fa803833dD1Fd6DBCDd91Ed0b301EFf87cF,13.45
+                    </li>
+                    <li className="sample-items">
+                      0x7D52422D3A5fE9bC92D3aE8167097eE09F1b347d,1.049
+                    </li>
+                    <li className="sample-items">
+                      0x64c9525A3c3a65Ea88b06f184F074C2499578A7E,1
+                    </li>
                   </ol>
                 </div>
               </div>
@@ -576,7 +770,7 @@ export default function Dapp() {
                     background: "#22ABE3",
                     color: "white",
                     cursor: "pointer",
-                    marginLeft: "-40px",
+                    marginLeft: "-54px",
                   }}
                 >
                   Choose file
@@ -593,7 +787,7 @@ export default function Dapp() {
                 <br />
                 <button
                   className="btn btn-primary fw-normal"
-                  style={{ marginTop: "8px", marginLeft: "-40px" }}
+                  style={{ marginTop: "8px", marginLeft: "-54px" }}
                   onClick={(e) => {
                     e.preventDefault();
                     if (csvFile) upload();
