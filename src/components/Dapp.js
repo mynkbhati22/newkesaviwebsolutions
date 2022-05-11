@@ -14,8 +14,15 @@ console.log(web3);
 
 export default function Dapp() {
   const [csvFile, setCsvFille] = useState();
+  const [account, setAccount] = useState();
+  const [chainid, setChainId] = useState(0);
   const [datavalue, setDatavalue] = useState("");
   const [getbalance, setGetBalance] = useState("");
+  const [isconnected, setIsConnected] = useState(false);
+  const [showdropdown, setShowDropDown] = useState(false);
+  const [shownative, setShowNative] = useState(false);
+  const [disableicon, setDisableicon] = useState(false);
+  const [result, setResult] = useState(false);
 
   // []
   const [headers, setHeaders] = useState([]);
@@ -143,14 +150,13 @@ export default function Dapp() {
   };
 
   //  RESULTS
-  const [result, setResult] = useState(false);
+
   const ShowResult = (e) => {
     e.preventDefault();
     setResult(!result);
   };
 
   // connect wallet
-  const [account, setAccount] = useState();
 
   const connectMetamask = async () => {
     if (window.ethereum) {
@@ -173,10 +179,7 @@ export default function Dapp() {
     }
   };
 
-  // switch icon
-  const [chainid, setChainId] = useState(0);
-
-  // get chainID
+  // get chainID  & dynamic value
   useEffect(async () => {
     const ID = await web3.eth.getChainId();
 
@@ -195,7 +198,7 @@ export default function Dapp() {
   }, []);
 
   // icon disappear and logout
-  const [isconnected, setIsConnected] = useState(false);
+
   const logOut = () => {
     setAccount(undefined);
     setIsConnected(!isconnected);
@@ -208,15 +211,14 @@ export default function Dapp() {
     setGetBalance(getbalance);
   };
   // eth native currency
-  const [showdropdown, setShowDropDown] = useState(false);
 
   const Showdropdown = () => {
     setShowDropDown(!showdropdown);
+    setDisableicon(!disableicon);
   };
 
   // show Natvie
 
-  const [shownative, setShowNative] = useState(false);
   const handleInput = () => {};
 
   return (
@@ -268,7 +270,7 @@ export default function Dapp() {
                 <a className="close" href="/airdrop">
                   &times;
                 </a>
-                <div className="content">
+                <div className="content d-grid">
                   <p
                     style={{
                       border: "1px solid",
@@ -388,7 +390,10 @@ export default function Dapp() {
             aria-hidden="true"
           >
             <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-              <div className="modal-content">
+              <div
+                className="modal-content"
+                style={{ height: "290px", width: "350px" }}
+              >
                 <div className="modal-header">
                   <h5
                     className="modal-title m-auto text-black"
@@ -403,10 +408,14 @@ export default function Dapp() {
                     aria-label="Close"
                   ></button>
                 </div>
-                <div className="modal-body d-flex justify-content-evenly">
+                <div className="modal-body d-block m-auto">
                   <div className="wallets-link">
                     <button
-                      style={{ padding: "10px", borderRadius: "12px" }}
+                      style={{
+                        padding: "10px",
+                        borderRadius: "12px",
+                        background: "transparent",
+                      }}
                       onClick={connectMetamask}
                     >
                       <img
@@ -435,7 +444,13 @@ export default function Dapp() {
                     className="wallets-link 
                    w-25"
                   >
-                    <button style={{ padding: "10px", borderRadius: "12px" }}>
+                    <button
+                      style={{
+                        padding: "10px",
+                        borderRadius: "12px",
+                        background: "transparent",
+                      }}
+                    >
                       <img
                         src={connect}
                         alt=""
@@ -594,6 +609,30 @@ export default function Dapp() {
                 ) : (
                   ""
                 )}
+                {chainid === 56 && account && showdropdown ? (
+                  <div className="dropdown">
+                    <div className="dropdown-area-box">
+                      <p
+                        style={{
+                          color: "#000000",
+                          marginBottom: "12px",
+                          padding: "10px 23px 0px",
+                          textAlign: "start",
+                          cursor: "default",
+                        }}
+                        onClick={() => {
+                          setShowDropDown(false);
+                          ShowBalance();
+                          setDatavalue(`BNB SMART CHAIN`);
+                        }}
+                      >
+                        BNB-{getbalance}-BNB SMART CHAIN
+                      </p>
+                    </div>
+                  </div>
+                ) : (
+                  ""
+                )}
                 {chainid === 3 && account && showdropdown ? (
                   <div className="dropdown">
                     <div className="dropdown-area-box">
@@ -644,7 +683,7 @@ export default function Dapp() {
                 ) : (
                   ""
                 )}
-                {chainid === 56 && !account && shownative ? (
+                {!chainid === 56 && !account && shownative ? (
                   <div className="dropdown">
                     <div className="dropdown-area-box">
                       <p
@@ -677,7 +716,9 @@ export default function Dapp() {
               >
                 Deflationary
               </label>
+
               <input
+                disabled={disableicon ? true : false}
                 className="form-check-input"
                 type="checkbox"
                 role="switch"
