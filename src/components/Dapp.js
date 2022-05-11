@@ -4,7 +4,9 @@ import { SiBinance } from "react-icons/si";
 import meta from "./image/meta.png";
 import connect from "./image/connect.svg";
 import { BiSearchAlt2 } from "react-icons/bi";
+// import DappNavbar from "./DappNavbar";
 import { AiOutlineLogout } from "react-icons/ai";
+import { getAccount } from "./Balance";
 import "./Dapp.css";
 import Web3 from "web3";
 const web3 = new Web3(window.ethereum);
@@ -13,6 +15,7 @@ console.log(web3);
 export default function Dapp() {
   const [csvFile, setCsvFille] = useState();
   const [datavalue, setDatavalue] = useState("");
+  const [getbalance, setGetBalance] = useState("");
 
   // []
   const [headers, setHeaders] = useState([]);
@@ -176,8 +179,19 @@ export default function Dapp() {
   // get chainID
   useEffect(async () => {
     const ID = await web3.eth.getChainId();
-    console.log("chain ID", ID);
+
     setChainId(ID);
+    const account = await getAccount();
+    web3.eth.getBalance(account, function (err, result) {
+      if (err) {
+        console.log(err);
+      } else {
+        setGetBalance(web3.utils.fromWei(result, "ether") + "");
+        console.log(web3.utils.fromWei(result, "ether") + " ETH");
+      }
+    });
+    setGetBalance(account);
+    await connectMetamask();
   }, []);
 
   // icon disappear and logout
@@ -188,24 +202,10 @@ export default function Dapp() {
   };
 
   // get balance
+  console.log("address", getbalance);
 
-  const web3 = new Web3(window.ethereum);
-
-  web3.eth.getBalance(
-    "0xdBd21416Da1207Bfb66BDf3baBE16538f112b706",
-    function (err, result) {
-      if (err) {
-        console.log(err);
-      } else {
-        setGetBalance(web3.utils.fromWei(result, "ether") + "");
-        console.log(web3.utils.fromWei(result, "ether") + " ETH");
-      }
-    }
-  );
-
-  const [getbalance, setGetBalance] = useState(0);
   const ShowBalance = () => {
-    setGetBalance(!getbalance);
+    setGetBalance(getbalance);
   };
   // eth native currency
   const [showdropdown, setShowDropDown] = useState(false);
@@ -217,9 +217,11 @@ export default function Dapp() {
   // show Natvie
 
   const [shownative, setShowNative] = useState(false);
+  const handleInput = () => {};
 
   return (
     <div>
+      {/* <DappNavbar /> */}
       <section>
         <div className="global-container">
           <div className="nav2-area" style={{ marginTop: "50px" }}>
@@ -509,6 +511,7 @@ export default function Dapp() {
                   <input
                     type="text"
                     value={datavalue}
+                    onChange={handleInput}
                     placeholder="Select your Token"
                     onClick={() => {
                       Showdropdown();
