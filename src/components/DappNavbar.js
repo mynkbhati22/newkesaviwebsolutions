@@ -118,13 +118,19 @@ export default function DappNavbar() {
                 href="https://www.facebook.com/Kesaviweb"
                 target="_blank"
                 rel="noreferrer"
+                className="social-icons"
               >
-                <FaFacebookF size={22} style={{ marginLeft: "10px" }} />
+                <FaFacebookF
+                  size={22}
+                  style={{ marginLeft: "10px" }}
+                  className="social-icon"
+                />
               </a>
               <a
                 href="https://twitter.com/KesaviS"
                 target="_blank"
                 rel="noreferrer"
+                className="social-icons"
               >
                 <FaTwitter size={22} style={{ marginLeft: "10px" }} />
               </a>
@@ -132,6 +138,7 @@ export default function DappNavbar() {
                 href="https://www.youtube.com/channel/UCDRT0QQa2St9IL7OVhEs9EA"
                 target="_blank"
                 rel="noreferrer"
+                className="social-icons"
               >
                 <FaYoutube size={22} style={{ marginLeft: "10px" }} />
               </a>

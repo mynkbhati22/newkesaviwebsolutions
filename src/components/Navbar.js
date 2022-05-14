@@ -4,24 +4,7 @@ import ERc20 from "./ERc20";
 import "./Navbar.css";
 
 function Navbar() {
-  // const [airdrop, setAirdrop] = useState(false);
-  const [dapp, setDapp] = useState(false);
 
-  // const ShowAirdrop = () => {
-  //   if (!airdrop) {
-  //     setAirdrop(true);
-  //   } else {
-  //     setAirdrop(false);
-  //   }
-  // };
-
-  const ShowDAPP = () => {
-    if (!dapp) {
-      setDapp(true);
-    } else {
-      setDapp(false);
-    }
-  };
   return (
     <div>
       <section style={{ maxWidth: "1440px", margin: "auto" }}>
@@ -61,20 +44,8 @@ function Navbar() {
                     to="/airdrop"
                     className="text-white text-decoration-none"
                   >
-                    {/* <button
-                      className="btn-primary"
-                      onClick={() => ShowAirdrop()}
-                      style={{
-                        marginRight: "40px",
-                        padding: "8px",
-                        width: "100px",
-                      }}
-                    >
-                      Airdrop{" "}
-                    </button> */}
                     <Link to="/airdrop">
                       <button
-                        onClick={() => ShowDAPP()}
                         className="btn-primary"
                         style={{
                           marginRight: "40px",
@@ -114,7 +85,6 @@ function Navbar() {
         ) : (
           ""
         )} */}
-     
       </section>
     </div>
   );

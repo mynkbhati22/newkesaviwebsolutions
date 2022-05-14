@@ -133,7 +133,7 @@ label.col-sm-2.col-form-label {
 }
 .d-grid {
   display: grid !important;
-  grid-gap: 50px;
+
 }
 
 @media screen and (max-width: 540px) {

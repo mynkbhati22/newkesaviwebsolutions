@@ -187,8 +187,8 @@ li.list-style {
   opacity: 1;
 }
 .connect-wallet-area {
-  margin-top: -20px;
-  margin-left: -16px;
+  margin-top: -1px;
+  margin-left: -2px;
 }
 .popup .content {
   max-height: 400px;
@@ -225,64 +225,101 @@ li.list-style {
   color: #000000;
   margin: auto;
 }
-/* media qurey */
-
-@media screen and (max-width: 540px) {
-  .airdrop-area {
-    display: flex;
-    justify-content: space-evenly;
-    margin-left: 15px;
-  }
-  .form-switch {
-    padding-left: 30px !important;
-    padding-right: 0px !important;
-  }
-  .token-container.text-center {
-    margin-left: 20px;
-    margin-bottom: 20px;
-  }
-  button.border.border-0.bg-transparent {
-    margin-right: 0px;
-  }
-  label.list {
-    margin-left: 44px;
-  }
-  form.ta {
-    margin-left: 45px;
-  }
-  textarea#exampleFormControlTextarea {
-    width: 97%;
-  }
-  button.button {
-    margin-left: 8rem;
-  }
-  .breadcrumb-area {
-    margin-left: 40px;
-  }
+button.btn2:hover {
+  border: none;
+}
+a.social-icons {
+  margin-left: 0px;
 }
 
-@media screen and (max-width: 820px) {
-  label.list {
-    margin-left: 37px;
+/* media qurey */
+
+@media screen and (max-width: 1024px) {
+  .icon {
+    color: #fff;
+  }
+  a.social-icons {
+    margin-left: -68px;
+    color: #fff;
+  }
+  svg.social-icon {
+    color: #fff;
+  }
+  img.logo-img {
+    margin-right: 80px;
   }
 }
 
 @media screen and (max-width: 912px) {
-  .nav2-area {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-  }
   .breadcrumb-area {
-    margin-left: 30px;
+    margin-left: 70px;
   }
 }
 
-@media screen and (max-width: 412px) {
+@media screen and (max-width: 540px) {
+  .connect-wallet-area {
+    margin-top: -1px;
+    margin-left: 0px;
+    margin-right: 30px;
+  }
+  .breadcrumb-area {
+    margin-left: 4rem;
+    margin-top: 15px;
+  }
+  p.fs-5.py-3 {
+    padding-left: 45px;
+  }
+  .form-switch {
+    padding-left: 0 !important;
+    padding-right: 0px !important;
+  }
+  label.list {
+    font-weight: 700;
+    margin-bottom: -11px;
+    margin-left: 68px;
+  }
+  form.ta {
+    margin-left: 66px;
+  }
+  textarea#exampleFormControlTextarea {
+    width: 100%;
+  }
+  .button-container {
+    margin-left: 11px !important;
+  }
   button.button {
-    margin-left: 3rem;
+    margin-left: 5rem;
   }
 }
 
 @media screen and (max-width: 480px) {
+  label.list {
+    font-weight: 700;
+    margin-bottom: -11px;
+    margin-left: 48px;
+  }
+  form.ta {
+    margin-left: 47px;
+  }
+  span.border.border-0.bg-transparent {
+    margin-right: 30px;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .form-area.position-relative {
+    margin-left: 20px;
+  }
+  .form-switch .form-check-input {
+    width: 2em;
+    margin-left: 0em !important;
+    border-radius: 2em;
+    transition: background-position 0.15s ease-in-out;
+  }
+  label.form-check-label {
+    margin-left: 0px !important;
+  }
+  span.border.border-0.bg-transparent {
+    margin-right: 5px;
+  }
 }

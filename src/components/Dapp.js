@@ -4,17 +4,20 @@ import { SiBinance } from "react-icons/si";
 import meta from "./image/meta.png";
 import connect from "./image/connect.svg";
 import { BiSearchAlt2 } from "react-icons/bi";
-// import DappNavbar from "./DappNavbar";
+import DappNavbar from "./DappNavbar";
 import { AiOutlineLogout } from "react-icons/ai";
 import { getAccount } from "./Balance";
 import "./Dapp.css";
+import { DisconnectWallet } from "./web3";
 import Web3 from "web3";
+
 const web3 = new Web3(window.ethereum);
 console.log(web3);
 
 export default function Dapp() {
   const [csvFile, setCsvFille] = useState();
   const [account, setAccount] = useState();
+  const [showalert, setShowAlert] = useState(false);
   const [chainid, setChainId] = useState(0);
   const [datavalue, setDatavalue] = useState("");
   const [getbalance, setGetBalance] = useState("");
@@ -142,7 +145,7 @@ export default function Dapp() {
 
     reader.onload = function (e) {
       const text = e.target.result;
-      // console.log(text);
+      console.log(text);
       processCSV(text);
     };
 
@@ -165,6 +168,15 @@ export default function Dapp() {
       setIsConnected(!isconnected);
       console.log(window.ethereum);
     }
+  };
+
+  // Disconnect
+  const logOut = async () => {
+    await DisconnectWallet();
+    setIsConnected(!isconnected);
+    setAccount(undefined);
+    window.localStorage.removeItem("WC");
+    window.account = false;
   };
 
   // Change Network
@@ -195,14 +207,20 @@ export default function Dapp() {
     });
     setGetBalance(account);
     await connectMetamask();
+    await DisconnectWallet();
+    document.getElementById("alertAnim");
+    document.getElementById("alertAnim");
   }, []);
 
+  try {
+    window.ethereum.on("chainChanged", async () => {
+      console.log("chain changed.");
+      window.location.reload();
+    });
+  } catch (e) {
+    //
+  }
   // icon disappear and logout
-
-  const logOut = () => {
-    setAccount(undefined);
-    setIsConnected(!isconnected);
-  };
 
   // get balance
   console.log("address", getbalance);
@@ -214,16 +232,28 @@ export default function Dapp() {
 
   const Showdropdown = () => {
     setShowDropDown(!showdropdown);
-    setDisableicon(!disableicon);
+    // setDisableicon(!disableicon);
   };
 
   // show Natvie
+  const Shownative = () => {
+    setShowNative(!shownative);
+  };
 
-  const handleInput = () => {};
+  // SHOWALERT
+  // const ShowAlert = () => {
+  //   setShowAlert(!showalert);
+  // };
+
+  // reload
+
+  // const Reloadpage = () => {
+  //   window.location.reload();
+  // };
 
   return (
     <div>
-      {/* <DappNavbar /> */}
+      <DappNavbar />
       <section>
         <div className="global-container">
           <div className="nav2-area" style={{ marginTop: "50px" }}>
@@ -251,110 +281,133 @@ export default function Dapp() {
             </div>
 
             {/* SWITCH NETWORK */}
-            <div id="wrapper">
-              <p>
-                <a className="button" href="#popup1">
-                  {chainid === 0 ? <FaEthereum /> : ""}
-                  {chainid === 1 ? <FaEthereum /> : ""}
-                  {chainid === 56 ? <SiBinance /> : ""}
-                  {chainid === 4 ? <FaEthereum color="black" /> : ""}
-                  {chainid === 3 ? <FaEthereum color="red" /> : ""}
-                  {chainid === 97 ? <SiBinance /> : ""}
-                </a>
-              </p>
-            </div>
 
-            <div id="popup1" className="overlay">
-              <div className="popup">
-                <h2>Change Network</h2>
-                <a className="close" href="/airdrop">
-                  &times;
-                </a>
-                <div className="content d-grid">
-                  <p
-                    style={{
-                      border: "1px solid",
-                      padding: "7px",
-                      textAlign: "center",
-                      cursor: "default",
-                      background: "black",
-                      color: "white",
-                    }}
-                    onClick={() => changeNetwork(56)}
-                  >
-                    <SiBinance />
-                    Binance Smart Chain
-                  </p>
-                  <p
-                    style={{
-                      border: "1px solid",
-                      padding: "7px",
-                      textAlign: "center",
-                      cursor: "default",
-                      background: "black",
-                      color: "white",
-                    }}
-                    onClick={() => changeNetwork(97)}
-                  >
-                    <SiBinance />
-                    Binance Smart Chain TESTNET
-                  </p>
-                  <p
-                    style={{
-                      border: "1px solid",
-                      padding: "7px",
-                      textAlign: "center",
-                      marginLeft: "10px",
-                      cursor: "default",
-                      background: "black",
-                      color: "white",
-                    }}
-                    onClick={() => changeNetwork(1)}
-                  >
-                    <FaEthereum />
-                    ETHEREUM MAINNET
-                  </p>
-                  <p
-                    style={{
-                      border: "1px solid",
-                      padding: "7px",
-                      textAlign: "center",
-                      marginLeft: "10px",
-                      cursor: "default",
-                      background: "black",
-                      color: "white",
-                    }}
-                    onClick={() => changeNetwork(4)}
-                  >
-                    <FaEthereum />
-                    RIKNEBY TESTNET
-                  </p>
-                  <p
-                    style={{
-                      border: "1px solid",
-                      padding: "7px",
-                      textAlign: "center",
-                      marginLeft: "10px",
-                      cursor: "default",
-                      background: "black",
-                      color: "white",
-                    }}
-                    onClick={() => changeNetwork(3)}
-                  >
-                    <FaEthereum />
-                    ROPSTEN TESTNET
-                  </p>
+            <button
+              type="button"
+              className="btn btn-outline-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+              style={{ marginLeft: "auto" }}
+            >
+              {chainid === 0 ? <FaEthereum /> : ""}
+              {chainid === 1 ? <FaEthereum /> : ""}
+              {chainid === 56 ? <SiBinance /> : ""}
+              {chainid === 4 ? <FaEthereum color="black" /> : ""}
+              {chainid === 3 ? <FaEthereum color="red" /> : ""}
+              {chainid === 97 ? <SiBinance /> : ""}
+            </button>
+
+            <div
+              className="modal fade"
+              id="exampleModal"
+              tabIndex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div className="modal-content">
+                  <div className="modal-header">
+                    <h5 className="modal-title" id="exampleModalLabel">
+                      Modal title
+                    </h5>
+                    <button
+                      type="button"
+                      className="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                      // onClick={() => Reloadpage()}
+                    ></button>
+                  </div>
+                  <div className="modal-body">
+                    {" "}
+                    <div className="content d-grid">
+                      <p
+                        style={{
+                          border: "1px solid",
+                          padding: "7px",
+                          textAlign: "center",
+                          cursor: "default",
+                          background: "black",
+                          color: "white",
+                        }}
+                        onClick={() => changeNetwork(56)}
+                      >
+                        <SiBinance />
+                        Binance Smart Chain
+                      </p>
+                      <p
+                        style={{
+                          border: "1px solid",
+                          padding: "7px",
+                          textAlign: "center",
+                          cursor: "default",
+                          background: "black",
+                          color: "white",
+                        }}
+                        onClick={() => changeNetwork(97)}
+                      >
+                        <SiBinance />
+                        Binance Smart Chain TESTNET
+                      </p>
+                      <p
+                        style={{
+                          border: "1px solid",
+                          padding: "7px",
+                          textAlign: "center",
+                          marginLeft: "10px",
+                          cursor: "default",
+                          background: "black",
+                          color: "white",
+                        }}
+                        onClick={() => changeNetwork(1)}
+                      >
+                        <FaEthereum />
+                        ETHEREUM MAINNET
+                      </p>
+                      <p
+                        style={{
+                          border: "1px solid",
+                          padding: "7px",
+                          textAlign: "center",
+                          marginLeft: "10px",
+                          cursor: "default",
+                          background: "black",
+                          color: "white",
+                        }}
+                        onClick={() => changeNetwork(4)}
+                      >
+                        <FaEthereum />
+                        RIKNEBY TESTNET
+                      </p>
+                      <p
+                        style={{
+                          border: "1px solid",
+                          padding: "7px",
+                          textAlign: "center",
+                          marginLeft: "10px",
+                          cursor: "default",
+                          background: "black",
+                          color: "white",
+                        }}
+                        onClick={() => changeNetwork(3)}
+                      >
+                        <FaEthereum />
+                        ROPSTEN TESTNET
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* CONNECT WALLET MODAL */}
+
             <div className="connect-wallet-area">
               <button
                 type="button"
                 className="btn btn-outline-primary"
                 data-bs-toggle="modal"
-                data-bs-target="#exampleModal"
+                data-bs-target="#connectModal"
                 style={{ marginLeft: "10px", cursor: "default" }}
               >
                 {account
@@ -384,7 +437,7 @@ export default function Dapp() {
 
           <div
             className="modal fade"
-            id="exampleModal"
+            id="connectModal"
             tabIndex="-1"
             aria-labelledby="exampleModalLabel"
             aria-hidden="true"
@@ -526,10 +579,10 @@ export default function Dapp() {
                   <input
                     type="text"
                     value={datavalue}
-                    onChange={handleInput}
                     placeholder="Select your Token"
                     onClick={() => {
                       Showdropdown();
+                      Shownative();
                     }}
                   />
                 </div>
@@ -660,7 +713,7 @@ export default function Dapp() {
 
                 {/* WHEN WALELT IS NOT CONNECTED */}
 
-                {chainid === 1 && !account && shownative ? (
+                {!chainid === 1 && !account && shownative ? (
                   <div className="dropdown">
                     <div className="dropdown-area-box">
                       <p
@@ -672,31 +725,8 @@ export default function Dapp() {
                           cursor: "default",
                         }}
                         onClick={() => {
-                          setShowDropDown(false);
                           setShowNative(false);
-                        }}
-                      >
-                        Native Currency
-                      </p>
-                    </div>
-                  </div>
-                ) : (
-                  ""
-                )}
-                {!chainid === 56 && !account && shownative ? (
-                  <div className="dropdown">
-                    <div className="dropdown-area-box">
-                      <p
-                        style={{
-                          color: "#000000",
-                          marginBottom: "12px",
-                          padding: "10px 23px 0px",
-                          textAlign: "start",
-                          cursor: "default",
-                        }}
-                        onClick={() => {
-                          setShowDropDown(false);
-                          setShowNative(false);
+                          setDatavalue(`Ethereum Mainnet Native Currency`);
                         }}
                       >
                         Native Currency
