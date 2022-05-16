@@ -7,7 +7,10 @@ import PartnersSlider from "./PartnersSlider";
 function HeroSection() {
   return (
     <>
-      <section className="hero hero-home with-pattern d-flex align-items-center py-5" style={{maxWidth:"1440px", margin:"auto"}}>
+      <section
+        className="hero hero-home with-pattern d-flex align-items-center py-5"
+        style={{ maxWidth: "1440px", margin: "auto" }}
+      >
         <div className="container py-5 mt-5">
           <div className="row align-items-center">
             <div className="col-md-6 mb-5 mb-md-0">
@@ -21,13 +24,55 @@ function HeroSection() {
                 and more. Customised Solutions for every need.
               </p>
               <div className="d-flex ms-0">
-                <a href="http://" className="video-btn">
+                <button
+                  type="button"
+                  className=" bg-transparent border border-0"
+                  data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop"
+                >
                   <img className="gif" src={icon} alt="gif" />{" "}
-                </a>
+                </button>
 
                 <div className="prent mx-3">
                   <span className="watch d-block">Watch</span>
                   <strong className="introvideo">Intro Video</strong>
+                </div>
+              </div>
+
+              <div
+                className="modal fade"
+                id="staticBackdrop"
+                data-bs-backdrop="static"
+                data-bs-keyboard="false"
+                tabIndex="-1"
+                aria-labelledby="staticBackdropLabel"
+                aria-hidden="true"
+              >
+                <div className="modal-dialog modal-dialog-centered">
+                  <div
+                    className="modal-content"
+                    style={{ background: "transparent", border: "none" }}
+                  >
+                    <div className="modal-header">
+                      <button
+                        type="button"
+                        className="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                        style={{
+                          border: "1px solid #fff",
+                        }}
+                      ></button>
+                    </div>
+                    <div className="modal-body">
+                      <iframe
+                        src="https://www.youtube.com/embed/yubzJw0uiE4"
+                        frameborder="0"
+                        style={{ width: "100%", height: "40vh" }}
+                        autoPlay="1"
+                      ></iframe>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

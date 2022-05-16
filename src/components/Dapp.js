@@ -4,7 +4,7 @@ import { SiBinance } from "react-icons/si";
 import meta from "./image/meta.png";
 import connect from "./image/connect.svg";
 import { BiSearchAlt2 } from "react-icons/bi";
-import DappNavbar from "./DappNavbar";
+// import DappNavbar from "./DappNavbar";
 import { AiOutlineLogout } from "react-icons/ai";
 import { getAccount } from "./Balance";
 import "./Dapp.css";
@@ -17,17 +17,15 @@ console.log(web3);
 export default function Dapp() {
   const [csvFile, setCsvFille] = useState();
   const [account, setAccount] = useState();
-  const [showalert, setShowAlert] = useState(false);
   const [chainid, setChainId] = useState(0);
-  const [datavalue, setDatavalue] = useState("");
+  const [datavalue, setDatavalue] = useState();
   const [getbalance, setGetBalance] = useState("");
   const [isconnected, setIsConnected] = useState(false);
   const [showdropdown, setShowDropDown] = useState(false);
   const [shownative, setShowNative] = useState(false);
-  const [disableicon, setDisableicon] = useState(false);
+  const [showmessage, setShowMessage] = useState(false);
+  const [line, setLine] = useState(false);
   const [result, setResult] = useState(false);
-
-  // []
   const [headers, setHeaders] = useState([]);
 
   const duplicateInfo = [
@@ -133,9 +131,6 @@ export default function Dapp() {
   const processCSV = (str) => {
     setHeaders(str.slice(str.indexOf("\n") + 1).split("\n"));
 
-    // const rows = str.slice(str.indexOf("\n") + 1).split("\n");
-    //   // setHeaders(str.slice(0 str.indexOf("\n")).split(delim));
-    // console.log(rows);
     return headers;
   };
 
@@ -240,20 +235,22 @@ export default function Dapp() {
     setShowNative(!shownative);
   };
 
-  // SHOWALERT
-  // const ShowAlert = () => {
-  //   setShowAlert(!showalert);
-  // };
+  const handleChange = () => {
+    //
+  };
 
-  // reload
+  const ShowMessage = () => {
+    setShowMessage(!showmessage);
+    console.log("alert");
+  };
 
-  // const Reloadpage = () => {
-  //   window.location.reload();
-  // };
+  const ShowLine = () => {
+    setLine(!line);
+  };
 
   return (
     <div>
-      <DappNavbar />
+      {/* <DappNavbar /> */}
       <section>
         <div className="global-container">
           <div className="nav2-area" style={{ marginTop: "50px" }}>
@@ -289,7 +286,7 @@ export default function Dapp() {
               data-bs-target="#exampleModal"
               style={{ marginLeft: "auto" }}
             >
-              {chainid === 0 ? <FaEthereum /> : ""}
+              {chainid === undefined ? <FaEthereum /> : ""}
               {chainid === 1 ? <FaEthereum /> : ""}
               {chainid === 56 ? <SiBinance /> : ""}
               {chainid === 4 ? <FaEthereum color="black" /> : ""}
@@ -579,6 +576,7 @@ export default function Dapp() {
                   <input
                     type="text"
                     value={datavalue}
+                    onChange={handleChange}
                     placeholder="Select your Token"
                     onClick={() => {
                       Showdropdown();
@@ -713,7 +711,7 @@ export default function Dapp() {
 
                 {/* WHEN WALELT IS NOT CONNECTED */}
 
-                {!chainid === 1 && !account && shownative ? (
+                {!account && shownative ? (
                   <div className="dropdown">
                     <div className="dropdown-area-box">
                       <p
@@ -748,7 +746,6 @@ export default function Dapp() {
               </label>
 
               <input
-                disabled={disableicon ? true : false}
                 className="form-check-input"
                 type="checkbox"
                 role="switch"
@@ -823,7 +820,6 @@ export default function Dapp() {
                 className="form-control"
                 value={headers}
                 onChange={(e) => setHeaders(e.target.value)}
-                required
               ></textarea>
 
               <div
@@ -869,47 +865,110 @@ export default function Dapp() {
                 >
                   Upload
                 </button>
+                {!account && showmessage ? (
+                  <div
+                    className="alert alert-danger"
+                    role="alert"
+                    style={{
+                      border: "1px solid",
+                      maxWidth: "630px",
+                      marginLeft: "-55px",
+                      marginTop: "10px",
+                    }}
+                  >
+                    <div style={{ textAlign: "center" }}>
+                      Please select token first{" "}
+                    </div>
+                  </div>
+                ) : (
+                  ""
+                )}
+
+                {account && !datavalue && showmessage ? (
+                  <div
+                    className="alert alert-danger"
+                    role="alert"
+                    style={{
+                      border: "1px solid",
+                      maxWidth: "630px",
+                      marginLeft: "-55px",
+                      marginTop: "10px",
+                    }}
+                  >
+                    <div style={{ textAlign: "center" }}>
+                      Please select token first{" "}
+                    </div>
+                  </div>
+                ) : (
+                  ""
+                )}
+
+                {datavalue && getbalance && line ? (
+                  <div
+                    className="alert alert-danger"
+                    role="alert"
+                    style={{
+                      border: "1px solid",
+                      maxWidth: "630px",
+                      marginLeft: "-55px",
+                      marginTop: "10px",
+                    }}
+                  >
+                    <div style={{ textAlign: "center" }}>
+                      Line 1-0: Please provide a corresponding amount for each
+                      address. Click 'Show Sample CSV' for more details. Please
+                      provide at least 2 addresses
+                    </div>
+                  </div>
+                ) : (
+                  ""
+                )}
+
                 <button
                   type="submit"
                   className=" button btn btn-primary"
                   id="liveAlertBtn"
+                  onClick={() => {
+                    ShowMessage();
+                    ShowLine();
+                  }}
                 >
                   Next
                 </button>
               </div>
             </form>{" "}
           </div>
+        </div>
 
-          <div className="next-container">
-            <div id="liveAlertPlaceholder"></div>
+        <div className="next-container">
+          <div id="liveAlertPlaceholder"></div>
 
-            {result ? (
+          {/* {result ? (
+            <div
+              className="textarea"
+              style={{ maxWidth: "768px", margin: "auto" }}
+            >
               <div
-                className="textarea"
-                style={{ maxWidth: "768px", margin: "auto" }}
+                className="alert alert-danger my-4 text-center py-4"
+                role="alert"
               >
-                <div
-                  className="alert alert-danger my-4 text-center py-4"
-                  role="alert"
-                >
-                  {duplicate}
-                </div>
-                <div className="buttons text-center">
-                  <button
-                    className="btn-primary p-2 fw-normal"
-                    style={{ marginRight: "10px" }}
-                  >
-                    Merge duplicates
-                  </button>
-                  <button className="btn-primary p-2 fw-normal">
-                    Proceed without merging
-                  </button>
-                </div>
+                {duplicate}
               </div>
-            ) : (
-              ""
-            )}
-          </div>
+              <div className="buttons text-center">
+                <button
+                  className="btn-primary p-2 fw-normal"
+                  style={{ marginRight: "10px" }}
+                >
+                  Merge duplicates
+                </button>
+                <button className="btn-primary p-2 fw-normal">
+                  Proceed without merging
+                </button>
+              </div>
+            </div>
+          ) : (
+            ""
+          )} */}
         </div>
       </section>
     </div>
