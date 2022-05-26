@@ -67,7 +67,7 @@ function HeroSection() {
                     <div className="modal-body">
                       <iframe
                         src="https://www.youtube.com/embed/yubzJw0uiE4"
-                        frameborder="0"
+                        frameBorder="0"
                         style={{ width: "100%", height: "40vh" }}
                         autoPlay="1"
                       ></iframe>

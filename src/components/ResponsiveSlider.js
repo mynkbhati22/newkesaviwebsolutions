@@ -1,48 +1,29 @@
-import React from "react";
-import Slider from "react-slick";
-import director from "./image/director.png";
-import nikhil from "./image/nikhil image.jpg";
-import mustafa from "./image/mustafa-s.jpg";
-import Mayank from "./image/Mayank.jpg";
+import React, { useState, useEffect } from 'react'
+import Slider from 'react-slick'
+import Client from '../Client'
 
 export default function ResponsiveSlider() {
-  const cardInfo = [
-    {
-      img: [director],
-      name: "Lalita",
-      designation: "Director",
-    },
-    {
-      img: [nikhil],
-      name: "Nikhil Rana",
-      designation: "CEO/CTO",
-    },
-    {
-      img: [mustafa],
-      name: "Mustafa Siddique",
-      designation: "Full-Stack Web Developer ",
-    },
-    {
-      img: [Mayank],
-      name: "Mayank Bhati",
-      designation: "Trainee",
-    },
-  ];
-  const renderCard = (cardInfo, index) => {
-    return (
-      <div className="image-container" key={index}>
-        <div className="images">
-          <div className="ic">
-            <img src={cardInfo.img} className="image1" alt="imglogo" />
-          </div>
-          <div className="details">
-            <p className="name">{cardInfo.name}</p>
-            <span className="designation">{cardInfo.designation}</span>
-          </div>
-        </div>
-      </div>
-    );
-  };
+  const [team, setTeam] = useState()
+
+  useEffect(() => {
+    Client.fetch(
+      `*[_type == "team"]{
+      title,
+      designation,
+      mainImage{
+        asset ->{
+          _id,
+          url
+        },
+        alt, 
+       },
+   }`
+    )
+      .then((data) => setTeam(data))
+      .catch(console.error)
+  }, [])
+  console.log(team);
+
   return (
     <>
       <div className="slider-container">
@@ -61,10 +42,24 @@ export default function ResponsiveSlider() {
             },
           ]}
         >
-          {cardInfo.map(renderCard)}
-          {console.log(cardInfo.map(renderCard))}
+          {team &&
+            team.map((team, index) => (
+              <div className="image-container" key={index}>
+                <div className="images">
+                  <div className="ic">
+                    {team.mainImage && team.mainImage.asset  && (
+                      <img src={team.mainImage.asset.url} className="image1" alt="imglogo" />
+                    )}
+                  </div>
+                  <div className="details">
+                    <p className="name">{team.title}</p>
+                    <span className="designation">{team.designation}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
         </Slider>
       </div>
     </>
-  );
+  )
 }

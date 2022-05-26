@@ -1,13 +1,12 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import ERc20 from "./ERc20";
-import "./Navbar.css";
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
+import ERc20 from './ERc20'
+import './Navbar.css'
 
 function Navbar() {
-
   return (
     <div>
-      <section style={{ maxWidth: "1440px", margin: "auto" }}>
+      <section style={{ maxWidth: '1440px', margin: 'auto' }}>
         <header className="header fixed-top header-animated">
           <nav className="navbar navbar-expand-lg navbar-light py-3">
             <div className="container">
@@ -48,9 +47,9 @@ function Navbar() {
                       <button
                         className="btn-primary"
                         style={{
-                          marginRight: "40px",
-                          padding: "8px",
-                          width: "100px",
+                          marginRight: '40px',
+                          padding: '8px',
+                          width: '100px',
                         }}
                       >
                         DAPP
@@ -58,14 +57,8 @@ function Navbar() {
                     </Link>
                   </Link>
                   <li className="nav-item-2">
-                    <a href="/1getaquote">
-                      <button
-                        className="btn btn-primary"
-                        type="button"
-                        data-tf-popup="biwy4Y7X"
-                        data-tf-iframe-props="title=My typeform"
-                        data-tf-medium="snippet"
-                      >
+                    <a href="/getaquote">
+                      <button className="btn btn-primary" type="button">
                         Get a quote
                       </button>
                     </a>
@@ -87,7 +80,7 @@ function Navbar() {
         )} */}
       </section>
     </div>
-  );
+  )
 }
 
-export default Navbar;
+export default Navbar
