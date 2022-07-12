@@ -14,6 +14,7 @@ export default function PartnersSlider() {
         },
         alt, 
        },
+       link
    }`,
     )
       .then((data) => setPartners(data))
@@ -51,13 +52,16 @@ export default function PartnersSlider() {
               <div className="partners-container" key={index}>
                 <div className="partners">
                   <div className="pc">
-                    {partners.mainImage && partners.mainImage.asset && (
-                      <img
-                        src={partners.mainImage.asset.url}
-                        className="d-block"
-                        alt="..."
-                      />
-                    )}
+                    <a href={partners.link} target="_blank" rel="noreferrer">
+                      {' '}
+                      {partners.mainImage && partners.mainImage.asset && (
+                        <img
+                          src={partners.mainImage.asset.url}
+                          className="d-block"
+                          alt="..."
+                        />
+                      )}
+                    </a>
                   </div>
                 </div>
               </div>

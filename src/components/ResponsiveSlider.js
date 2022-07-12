@@ -17,12 +17,12 @@ export default function ResponsiveSlider() {
         },
         alt, 
        },
-   }`
+   }`,
     )
       .then((data) => setTeam(data))
       .catch(console.error)
   }, [])
-  console.log(team);
+  console.log(team)
 
   return (
     <>
@@ -47,8 +47,12 @@ export default function ResponsiveSlider() {
               <div className="image-container" key={index}>
                 <div className="images">
                   <div className="ic">
-                    {team.mainImage && team.mainImage.asset  && (
-                      <img src={team.mainImage.asset.url} className="image1" alt="imglogo" />
+                    {team.mainImage && team.mainImage.asset && (
+                      <img
+                        src={team.mainImage.asset.url}
+                        className="image1"
+                        alt="imglogo"
+                      />
                     )}
                   </div>
                   <div className="details">
