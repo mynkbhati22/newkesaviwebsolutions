@@ -85,6 +85,7 @@ img.gif {
   display: block !important;
   margin-left: 20px;
   margin-right: auto;
+  border-radius: 50%;
 }
 img.d-block {
   width: 30%;
