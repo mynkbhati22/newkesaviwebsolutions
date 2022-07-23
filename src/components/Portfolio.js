@@ -1,166 +1,152 @@
-import React, { useState, useEffect } from 'react'
-import classNames from 'classnames'
-import axios from 'axios'
-import { useHistory } from 'react-router-dom'
-import './Portfolio.css'
-import Toast from './Toast'
-import AddChannelBtn from './AddChannelBtn'
+import React from "react";
+import { useIntl } from "react-intl";
+import { NavLink } from "react-router-dom";
+import {
+  ProSidebar,
+  Menu,
+  MenuItem,
+  SubMenu,
+  SidebarHeader,
+  SidebarFooter,
+  SidebarContent,
+} from "react-pro-sidebar";
+import {
+  FaTachometerAlt,
+  FaGem,
+  FaList,
+  FaGithub,
+  FaRegLaughWink,
+  FaHeart,
+} from "react-icons/fa";
+import "react-pro-sidebar/dist/css/styles.css";
+import { useHistory, useLocation } from "react-router-dom";
+import Layout from "./Layout";
 
-function Portfolio(props) {
-  const { sidebarOpen, setSidebarOpen, setMessages } = props
-  const [channels, setChannels] = useState([])
+const Portfolio = ({ rtl, toggled, handleToggleSidebar }) => {
+  const intl = useIntl();
+  const history = useHistory();
+  const location = useLocation();
 
-  let currentChannelId =
-    localStorage.getItem('channelId') || '5f325c4598326349ea89ef84'
-  let history = useHistory()
-
-  useEffect(() => {
-    axios
-      .get('https://chat-app-server-linh.herokuapp.com/chat/channels')
-      .then((res) => {
-        setChannels(() => res.data)
-      })
-      .catch((err) => console.log(err))
-  }, [])
-
-  function onClickGetMessage(e) {
-    const channelId = e.target.dataset.id
-
-    axios
-      .get(
-        `https://chat-app-server-linh.herokuapp.com/chat/channel/${channelId}`,
-        {
-          headers: {
-            authorization: localStorage.getItem('jwt'),
-          },
-        },
-      )
-      .then((res) => {
-        if (res.data.error) {
-          localStorage.clear()
-
-          Toast.fire({
-            icon: 'error',
-            title: res.data.error,
-          })
-          return history.push('/signin')
-        }
-
-        localStorage.setItem('channelId', res.data.channelId)
-        setMessages(() => res.data.messages)
-      })
-      .catch((err) => console.log(err))
-  }
   return (
-    <>
-      <div className={classNames('sidebar', { nonVisible: !sidebarOpen })}>
-        <div className="logo d-flex justify-content-between">
-          <div className="logo-name">
-            <img
-              src="https://cdn.glitch.com/af45ea57-cc17-431c-a29e-191393077cfe%2Flogo.4dbbacd2.svg?v=1597420315594"
-              alt=""
-            />
-            TIKO
-          </div>
-          <img
-            onClick={() => setSidebarOpen(false)}
-            src="https://cdn.glitch.com/af45ea57-cc17-431c-a29e-191393077cfe%2Fcross.svg?v=1596721763254"
-            alt=""
-          />
-        </div>
-        <div className="vertical-menu pt-2">
-          <ul>
-            <li>
+    <ProSidebar
+      rtl={rtl}
+      toggled={toggled}
+      breakPoint="md"
+      onToggle={handleToggleSidebar}
+    >
+      <SidebarHeader>
+        <div className="sidebar-header">
+          <p className="user-name text-white mb-2">John Doe</p>
+          <p className="user-email">johndoe@withinpixels.com</p>
+          <div className="d-flex justify-content-center">
+            <div className="position-absolute bottom-0">
               <img
-                src="https://cdn.glitch.com/af45ea57-cc17-431c-a29e-191393077cfe%2Ficons8-menu-rounded-50.png?v=1596541736150"
-                alt=""
+                src="./assets/images/user.jpg"
+                alt="User profile"
+                className="user-image"
               />
-              <span>All unreads</span>
-            </li>
-            <li>
-              <img
-                src="https://cdn.glitch.com/af45ea57-cc17-431c-a29e-191393077cfe%2Fconversation.svg?v=1596542126344"
-                alt=""
-              />
-              <span>Threads</span>
-            </li>
-            <li>
-              <img
-                src="https://cdn.glitch.com/af45ea57-cc17-431c-a29e-191393077cfe%2Fcopy.svg?v=1596543073128"
-                alt=""
-              />
-              <span>Drafts</span>
-            </li>
-            <li>
-              <img
-                src="https://cdn.glitch.com/af45ea57-cc17-431c-a29e-191393077cfe%2Fbookmark.svg?v=1596542475338"
-                alt=""
-              />
-              <span>Saved items</span>
-            </li>
-          </ul>
-          <ul className="channels">
-            <li className="d-flex justify-content-between">
-              <span className="menu-title">CHANNELS</span>
-              <AddChannelBtn channels={channels} setChannels={setChannels} />
-            </li>
-            {channels.length &&
-              channels.map((channel, index) => (
-                <li
-                  className={classNames('channel-item', {
-                    'color-focus': currentChannelId === channel._id,
-                  })}
-                  key={index}
-                  onClick={(e) => onClickGetMessage(e)}
-                >
-                  <span data-id={channel._id}># {channel.channelName}</span>
-                </li>
-              ))}
-          </ul>
-        </div>
-      </div>
-      {/* <header className="header fixed-top header-animated">
-        <nav className="navbar navbar-expand-lg navbar-light py-3">
-          <div className="container">
-            <a className="navbar-brand" href="/">
-              <img
-                className="logo"
-                src="https://d33wubrfki0l68.cloudfront.net/cfaf67e8d5403f3add0475ab49a825edb5c01651/2b845/img/logo.png"
-                alt="..."
-                width="200"
-              />
-            </a>
-            <button
-              className="navbar-toggler navbar-toggler-end"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span className="navbar-toggler-icon"></span>
-            </button>
-            <div
-              className="collapse navbar-collapse"
-              id="navbarSupportedContent"
-            >
-              <ul className="navbar-nav ms-auto">
-                <li className="nav-item-1">
-                  <a
-                    className="nav-link-1"
-                    href="/"
-                  >
-                    BACK TO HOMEPAGE
-                  </a>
-                </li>
-              </ul>
             </div>
           </div>
-        </nav>
-      </header> */}
-    </>
-  )
-}
+        </div>
+      </SidebarHeader>
 
-export default Portfolio
+      <SidebarContent>
+        <Menu iconShape="circle">
+          <MenuItem
+            icon={<FaTachometerAlt />}
+            suffix={
+              <span className="badge red">
+                {intl.formatMessage({ id: "new" })}
+              </span>
+            }
+          >
+            <NavLink exact to={"/"}>
+              {intl.formatMessage({ id: "dashboard" })}
+            </NavLink>
+          </MenuItem>
+          <MenuItem icon={<FaGem />}>
+            {" "}
+            {intl.formatMessage({ id: "components" })}
+          </MenuItem>
+        </Menu>
+        <Menu iconShape="circle">
+          <SubMenu
+            suffix={<span className="badge yellow">3</span>}
+            title={intl.formatMessage({ id: "withSuffix" })}
+            icon={<FaRegLaughWink />}
+            data-element={location.pathname}
+          >
+            <MenuItem>
+              <NavLink exact to={"/about"}>
+                {intl.formatMessage({ id: "submenu" })} About
+              </NavLink>
+            </MenuItem>
+            <MenuItem>
+              <NavLink exact to={"/"}>
+                {intl.formatMessage({ id: "submenu" })} Home 2
+              </NavLink>
+            </MenuItem>
+            <MenuItem>{intl.formatMessage({ id: "submenu" })} 3</MenuItem>
+          </SubMenu>
+          <SubMenu
+            prefix={<span className="badge gray">3</span>}
+            title={intl.formatMessage({ id: "withPrefix" })}
+            icon={<FaHeart />}
+            data-element={location.pathname}
+          >
+            <MenuItem>
+              <NavLink exact to={"/"}>
+                {intl.formatMessage({ id: "submenu" })} 1 Home
+              </NavLink>
+            </MenuItem>
+            <MenuItem>{intl.formatMessage({ id: "submenu" })} 2</MenuItem>
+            <MenuItem>{intl.formatMessage({ id: "submenu" })} 3</MenuItem>
+          </SubMenu>
+          <SubMenu
+            title={intl.formatMessage({ id: "multiLevel" })}
+            icon={<FaList />}
+          >
+            <MenuItem>{intl.formatMessage({ id: "submenu" })} 1 </MenuItem>
+            <MenuItem>{intl.formatMessage({ id: "submenu" })} 2 </MenuItem>
+            <SubMenu title={`${intl.formatMessage({ id: "submenu" })} 3`}>
+              <MenuItem>{intl.formatMessage({ id: "submenu" })} 3.1 </MenuItem>
+              <MenuItem>{intl.formatMessage({ id: "submenu" })} 3.2 </MenuItem>
+              <SubMenu title={`${intl.formatMessage({ id: "submenu" })} 3.3`}>
+                <MenuItem>
+                  {intl.formatMessage({ id: "submenu" })} 3.3.1{" "}
+                </MenuItem>
+                <MenuItem>
+                  {intl.formatMessage({ id: "submenu" })} 3.3.2{" "}
+                </MenuItem>
+                <MenuItem>
+                  {intl.formatMessage({ id: "submenu" })} 3.3.3{" "}
+                </MenuItem>
+              </SubMenu>
+            </SubMenu>
+          </SubMenu>
+        </Menu>
+      </SidebarContent>
+
+      <SidebarFooter style={{ textAlign: "center" }}>
+        <div
+          className="sidebar-btn-wrapper"
+          style={{
+            padding: "20px 24px",
+          }}
+        >
+          <a
+            href="https://github.com/azouaoui-med/react-pro-sidebar"
+            target="_blank"
+            className="sidebar-btn"
+            rel="noopener noreferrer"
+          >
+            <FaGithub />
+            <span> {intl.formatMessage({ id: "viewSource" })}</span>
+          </a>
+        </div>
+      </SidebarFooter>
+    </ProSidebar>
+  );
+};
+
+export default Portfolio;

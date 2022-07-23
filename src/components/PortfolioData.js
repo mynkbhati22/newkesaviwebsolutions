@@ -23,7 +23,7 @@ export default function PortfolioData() {
       .then((data) => setPortfolio(data))
       .catch(console.error);
   }, []);
-  
+
   return (
     <>
       <div className="row gy-4 gx-5 masonry-wrapper">
@@ -35,7 +35,12 @@ export default function PortfolioData() {
             >
               <div className="look-container">
                 {portfolio.mainImage && portfolio.mainImage.asset && (
-                  <a href={portfolio.link} target="_blank" rel="noreferrer"  className="image">
+                  <a
+                    href={portfolio.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="image"
+                  >
                     {" "}
                     <img
                       src={portfolio.mainImage.asset.url}
@@ -68,4 +73,3 @@ export default function PortfolioData() {
     </>
   );
 }
-
